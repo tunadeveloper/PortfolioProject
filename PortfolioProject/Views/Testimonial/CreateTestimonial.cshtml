@@ -1,0 +1,22 @@
+﻿@model PortfolioProject.Models.Testimonial
+@{
+    ViewBag.Title = "CreateTestimonial";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Yeni Referans Girişi</h2>
+<form method="post">
+    <label>İsim Soyisim</label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Yorum</label>
+    @Html.TextAreaFor(x => x.Comment, 4, 0, new { @class = "form-control" })
+    <br />
+    <label>Fotoğraf Bağlantısı</label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "https://i.hizliresim.com/resim.jpg" })
+    <br />
+    <button class="btn btn-info">Referansı Oluştur</button>
+</form>

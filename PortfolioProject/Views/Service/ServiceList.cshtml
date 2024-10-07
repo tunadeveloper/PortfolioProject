@@ -1,0 +1,38 @@
+﻿@model List<PortfolioProject.Models.Service>
+@{
+    ViewBag.Title = "ServiceList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Hizmetlerim Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Icon</th>
+        <th>1. Yetenek</th>
+        <th>2. Yetenek</th>
+        <th>3. Yetenek</th>
+        <th>Sil</th>
+        <th>Güncelleme</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ServiceId</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td style="max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">@item.Icon</td>
+            <td>@item.Experience1</td>
+            <td>@item.Experience2</td>
+            <td>@item.Experience3</td>
+            <td><a href="/Service/DeleteService/@item.ServiceId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Service/UpdateService/@item.ServiceId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Service/CreateService/" class="btn btn-info">Yeni Hizmet Girişi</a>
+

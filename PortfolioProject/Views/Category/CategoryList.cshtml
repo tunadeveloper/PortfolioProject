@@ -1,32 +1,33 @@
-﻿
+﻿@model List<PortfolioProject.Models.Category>
 @{
-    Layout = null;
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Admin/Index.cshtml";
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
+<h2 class="mb-4">Kategori Listesi</h2>
 
-<br /><br />
-<div class="container">
-    <table class="table table-bordered">
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kategori Adı</th>
+        <th>Durumu</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>Kategori ID</th>
-            <th>Kategori Adı</th>
-            <th>Kategori Durumu</th>
-            <th>Detaylar</th>
+            <td>@item.CategoryId</td>
+            <td>@item.CatagoryName</td>
+            <td>
+                <span class="@(item.CategoryStatus == true ? "text-success" : "text-danger")">
+                    @(item.CategoryStatus == true ? "Aktif" : "Pasif")
+                </span>
+            </td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
         </tr>
-
-        <tr>
-            <td>1</td>
-            <td>Meyve Sebze</td>
-            <td>Aktif</td>
-            <td><button class="btn btn-info">Detaylar</button></td>
-        </tr>
-
-        <tr>
-            <td>2</td>
-            <td>İçecek</td>
-            <td>Aktif</td>
-            <td><button class="btn btn-info">Detaylar</button></td>
-        </tr>
-    </table>
-</div>
+    }
+</table>
+<a href="/Category/CreateCategory/" class="btn btn-info">Yeni Kategori Girişi</a>

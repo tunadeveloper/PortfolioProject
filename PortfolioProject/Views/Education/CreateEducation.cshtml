@@ -1,0 +1,24 @@
+﻿@model PortfolioProject.Models.Education
+@{
+    ViewBag.Title = "CreateEducation";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Eğitim Ekle</h2>
+
+<form method="post">
+    <label>Kurum Adı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Eğitim Tarihi (YYYY - YYYY)</label>
+    @Html.TextBoxFor(x => x.EducationDate, new { @class = "form-control", placeholder = "2022 - 2026" })
+    <br />
+    <label>Bölüm | Pozisyon</label>
+    @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Description, 5, 0, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Eğitimi Ekle</button>
+</form>
+

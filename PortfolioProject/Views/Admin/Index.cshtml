@@ -6,23 +6,26 @@
 <!doctype html>
 <html lang="en">
 
-@Html.Action("PartialHead","Admin")
-<body>
+@Html.Action("PartialHead", "Admin")
 
+<body>
     <div class="wrapper d-flex align-items-stretch">
-        
-@Html.Action("PartialSideBar", "Admin")
+
+        @Html.Action("PartialSideBar", "Admin")
+
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-5">
-@Html.Action("PartialNavbar", "Admin")
+
+            @Html.Action("PartialNavbar", "Admin")
 
             @RenderBody()
+
         </div>
     </div>
 
-    <script src="~/Content/sidebar-01/js/jquery.min.js"></script>
-    <script src="~/Content/sidebar-01/js/popper.js"></script>
-    <script src="~/Content/sidebar-01/js/bootstrap.min.js"></script>
-    <script src="~/Content/sidebar-01/js/main.js"></script>
+    <script src="/Content/sidebar-01/js/jquery.min.js"></script>
+    <script src="/Content/sidebar-01/js/popper.js"></script>
+    <script src="/Content/sidebar-01/js/bootstrap.min.js"></script>
+    <script src="/Content/sidebar-01/js/main.js"></script>
 </body>
 </html>

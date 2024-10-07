@@ -12,12 +12,11 @@ namespace PortfolioProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Testimonial
+    public partial class SocialMedia
     {
-        public int TestimonialId { get; set; }
+        public int SocialMediaId { get; set; }
         public string Title { get; set; }
-        public string Comment { get; set; }
-        public string ImageUrl { get; set; }
-        public string NameSurname { get; set; }
+        public string Icon { get; set; }
+        public Nullable<bool> Status { get; set; }
     }
 }

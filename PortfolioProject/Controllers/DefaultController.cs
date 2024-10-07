@@ -10,10 +10,28 @@ namespace PortfolioProject.Controllers
     public class DefaultController : Controller
     {
         // GET: Default
-        MyPortfolioDbEntities context = new MyPortfolioDbEntities();    
+        MyPortfolioDbEntities context = new MyPortfolioDbEntities();
         public ActionResult Index()
         {
+            List<SelectListItem> values = (from x in context.Category.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CatagoryName,
+                                               Value = x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
             return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Index(Message message)
+        {
+            message.SendDate = DateTime.Parse(DateTime.Now.ToLongDateString());
+            message.IsRead = false;
+            context.Message.Add(message);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult PartialHead()
@@ -36,16 +54,17 @@ namespace PortfolioProject.Controllers
             ViewBag.email = context.Profile.Select(x => x.Email).FirstOrDefault();
             ViewBag.phone = context.Profile.Select(x => x.PhoneNumber).FirstOrDefault();
             ViewBag.github = context.Profile.Select(x => x.Github).FirstOrDefault();
-            
+
             return PartialView();
         }
 
-        public PartialViewResult PartialAbout() { 
-        ViewBag.title = context.Profile.Select(x=>x.Title).FirstOrDefault();
-        ViewBag.description = context.Profile.Select(x=>x.Description).FirstOrDefault();
-        ViewBag.phone = context.Profile.Select(x=>x.PhoneNumber).FirstOrDefault();
-        ViewBag.email = context.Profile.Select(x=>x.Email).FirstOrDefault();
-        ViewBag.imageUrl = context.Profile.Select(x=>x.ImageUrl).FirstOrDefault();
+        public PartialViewResult PartialAbout()
+        {
+            ViewBag.title = context.Profile.Select(x => x.Title).FirstOrDefault();
+            ViewBag.description = context.Profile.Select(x => x.Description).FirstOrDefault();
+            ViewBag.phone = context.Profile.Select(x => x.PhoneNumber).FirstOrDefault();
+            ViewBag.email = context.Profile.Select(x => x.Email).FirstOrDefault();
+            ViewBag.imageUrl = context.Profile.Select(x => x.ImageUrl).FirstOrDefault();
 
             return PartialView();
         }
@@ -59,6 +78,42 @@ namespace PortfolioProject.Controllers
         public PartialViewResult PartialScript()
         {
             return PartialView();
+        }
+
+        public PartialViewResult PartialSkill()
+        {
+            var values = context.Skill.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialSocialMedia()
+        {
+            var values = context.SocialMedia.Where(x => x.Status == true).ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialExperience()
+        {
+            var values = context.Experience.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialMyProject() { 
+        
+            var values = context.Work.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialTestimonial()
+        {
+            var values = context.Testimonial.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialService()
+        {
+            var values = context.Service.ToList();
+            return PartialView(values);
         }
     }
 }

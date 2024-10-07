@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PortfolioProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,6 @@ namespace PortfolioProject.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
         public ActionResult Index()
         {
             return View();
@@ -17,15 +17,15 @@ namespace PortfolioProject.Controllers
         {
             return PartialView();
         }
-
-        public PartialViewResult PartialSideBar() { 
-        return PartialView();
+        public PartialViewResult PartialSideBar()
+        {
+            return PartialView();
         }
-
         public PartialViewResult PartialNavbar()
         {
             return PartialView();
         }
 
+        
     }
 }

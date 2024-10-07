@@ -1,0 +1,42 @@
+﻿@model PortfolioProject.Models.Profile
+@{
+    ViewBag.Title = "UpdateProfile";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Profilim</h2>
+
+<form method="post">
+
+    @Html.HiddenFor(x => x.ProfileId)
+   
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Description, 5, 0, new { @class = "form-control" })
+    <br />
+    <label>ADres</label>
+    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+    <br />
+    <label>Telefon</label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br />
+    <label>mail</label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label>github</label>
+    @Html.TextBoxFor(x => x.Github, new { @class = "form-control" })
+    <br />
+    <label>Görsel</label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+    <img src="@Url.Content(Model.ImageUrl)" alt="Profile Image" style="max-width: 200px;" />
+    <br />
+    <br />
+    <label>Harita</label>
+    @Html.TextBoxFor(x => x.MapLocation, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-success">Profili Güncelle</button>
+</form>
