@@ -15,8 +15,8 @@
     <label>Yorum</label>
     @Html.TextAreaFor(x => x.Comment, 4, 0, new { @class = "form-control" })
     <br />
-    <label>Fotoğraf Bağlantısı</label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", placeholder = "https://i.hizliresim.com/resim.jpg" })
+    <label>Fotoğraf Bağlantısı | 100-100px</label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info", placeholder = "https://i.hizliresim.com/resim.jpg" })
     <br />
     <button class="btn btn-info">Referansı Oluştur</button>
 </form>

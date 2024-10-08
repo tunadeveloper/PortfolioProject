@@ -11,7 +11,7 @@
         <th>Id</th>
         <th>Kategori Adı</th>
         <th>Durumu</th>
-        <th>Sil</th>
+        <th>Değiştir</th>
         <th>Güncelle</th>
     </tr>
 
@@ -25,7 +25,14 @@
                     @(item.CategoryStatus == true ? "Aktif" : "Pasif")
                 </span>
             </td>
-            <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+            @if (item.CategoryStatus == false)
+            {
+                <td><a href="/Category/ActiveCategory/@item.CategoryId" class="btn btn-info">Aktif Olarak İşaretle</a></td>
+            }
+            else
+            {
+                <td><a href="/Category/PassiveCategory/@item.CategoryId" class="btn btn-warning">Pasif Olarak İşaretle</a></td>
+            }
             <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a></td>
         </tr>
     }

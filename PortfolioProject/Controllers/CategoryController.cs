@@ -46,10 +46,18 @@ namespace PortfolioProject.Controllers
             return RedirectToAction("CategoryList");
         }
 
-        public ActionResult DeleteCategory(int id)
+        public ActionResult ActiveCategory(int id)
         {
-            var value = context.Category.Find(id);
-            context.Category.Remove(value);
+            var value = context.Category.Where(x => x.CategoryId == id).FirstOrDefault();
+            value.CategoryStatus = true;
+            context.SaveChanges();
+            return RedirectToAction("CategoryList");
+        }
+
+        public ActionResult PassiveCategory(int id)
+        {
+            var value = context.Category.Where(x => x.CategoryId == id).FirstOrDefault();
+            value.CategoryStatus = false;
             context.SaveChanges();
             return RedirectToAction("CategoryList");
         }

@@ -1,15 +1,15 @@
-﻿
+﻿@model List<PortfolioProject.Models.SocialMedia>
 <div class="container-fluid" id="pigraHome">
     <div class="container">
         <div class="row g-0">
             <div class="col-12 col-lg-3">
                 <div class="header-content bg-dark h-100 pt-6 pe-6 pb-6">
                     <a href="index.html" class="navbar-brand d-inline-flex pb-5 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="display-6 text-white mb-0">Pigra</h1>
+                        <h1 class="display-6 text-white mb-0">@ViewBag.SideBarTitle</h1>
                     </a>
                     <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.3s">
-                        <p class="text-white sub-title">👋 Merhaba Ben Tunahan</p>
-                        <h1 class="display-6 text-white mb-0">.NET CORE DEVELOPER</h1>
+                        <p class="text-white sub-title">👋 Merhaba Ben @ViewBag.SideBarName</p>
+                        <h1 class="display-6 text-white mb-0">@ViewBag.SideBarSubtitle</h1>
                     </div>
                 </div>
             </div>
@@ -43,10 +43,9 @@
                                 <p class="text-dark mb-0">@ViewBag.github</p>
                             </div>
                             <div class="d-flex">
-                                <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                                <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                                <a class="btn btn-primary btn-sm-square me-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                                <a class="btn btn-primary btn-sm-square me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
+                              @foreach(var item in Model) {
+                                <a class="btn btn-primary btn-sm-square me-3" href="@item.SocialMediaUrl"><i class="@item.Icon text-white"></i></a>
+                              }
                             </div>
                         </div>
                     </div>

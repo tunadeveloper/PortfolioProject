@@ -13,7 +13,8 @@ namespace PortfolioProject.Controllers
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
         public ActionResult Index()
         {
-            List<SelectListItem> values = (from x in context.Category.ToList()
+            List<SelectListItem> values = (from x in context.Category
+                                           where x.CategoryStatus == true
                                            select new SelectListItem
                                            {
                                                Text = x.CatagoryName,
@@ -21,7 +22,6 @@ namespace PortfolioProject.Controllers
                                            }).ToList();
             ViewBag.v = values;
             return View();
-
         }
 
         [HttpPost]
@@ -46,6 +46,10 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialHeader()
         {
+            ViewBag.SideBarTitle = context.About.Select(x => x.SideBarTitle).FirstOrDefault();
+            ViewBag.SideBarName = context.About.Select(x => x.SideBarName).FirstOrDefault();
+            ViewBag.SideBarSubtitle = context.About.Select(x => x.SideBarSubtitle).FirstOrDefault();
+
             ViewBag.title = context.About.Select(x => x.Title).FirstOrDefault();
             ViewBag.detail = context.About.Select(x => x.Detail).FirstOrDefault();
             ViewBag.imageUrl = context.About.Select(x => x.ImageUrl).FirstOrDefault();
@@ -55,7 +59,8 @@ namespace PortfolioProject.Controllers
             ViewBag.phone = context.Profile.Select(x => x.PhoneNumber).FirstOrDefault();
             ViewBag.github = context.Profile.Select(x => x.Github).FirstOrDefault();
 
-            return PartialView();
+            var values = context.SocialMedia.Where(x => x.Status == true).ToList();
+            return PartialView(values);
         }
 
         public PartialViewResult PartialAbout()

@@ -10,13 +10,6 @@
     <label>Kategori Adı</label>
     @Html.TextBoxFor(x => x.CatagoryName, new { @class = "form-control" })
     <br />
-    <label>Kategori Durumu</label>
-    @Html.DropDownListFor(x => x.CategoryStatus, new SelectList(new List<SelectListItem>
-    {
-        new SelectListItem { Text = "Aktif", Value = "True" },
-        new SelectListItem { Text = "Pasif", Value = "False" }
-    }, "Value", "Text"), "Kategori Durumunu Seçiniz", new { @class = "form-control" })
-    <br />
     <button class="btn btn-info">Kategoriyi Güncelle</button>
 </form>
 

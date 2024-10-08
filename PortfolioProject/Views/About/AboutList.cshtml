@@ -8,7 +8,7 @@
 
 <table class="table table-bordered">
     <tr>
-        <th>Id</th>
+      
         <th>Başlık</th>
         <th>Açıklama</th>
         <th>Fotoğrafım</th>
@@ -18,10 +18,10 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.AboutId</td>
+           
             <td>@item.Title</td>
             <td>@item.Detail</td>
-            <td>@item.ImageUrl</td>
+            <td><img src="@item.ImageUrl" style="height:72px; width:128px;" /></td>
             <td><a href="/About/UpdateAbout/@item.AboutId" class="btn btn-success">Güncelle</a></td>
         </tr>
     }

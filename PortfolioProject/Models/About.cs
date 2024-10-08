@@ -18,5 +18,8 @@ namespace PortfolioProject.Models
         public string Title { get; set; }
         public string Detail { get; set; }
         public string ImageUrl { get; set; }
+        public string SideBarTitle { get; set; }
+        public string SideBarName { get; set; }
+        public string SideBarSubtitle { get; set; }
     }
 }

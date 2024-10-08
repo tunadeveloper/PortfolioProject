@@ -9,6 +9,7 @@ namespace PortfolioProject.Controllers
 {
     public class AdminController : Controller
     {
+        MyPortfolioDbEntities context = new MyPortfolioDbEntities();
         public ActionResult Index()
         {
             return View();
@@ -19,7 +20,8 @@ namespace PortfolioProject.Controllers
         }
         public PartialViewResult PartialSideBar()
         {
-            return PartialView();
+            var value = context.About.ToList();
+            return PartialView(value);
         }
         public PartialViewResult PartialNavbar()
         {

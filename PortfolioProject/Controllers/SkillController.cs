@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace PortfolioProject.Controllers
 {
-    
+
     public class SkillController : Controller
     {
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
@@ -32,12 +32,30 @@ namespace PortfolioProject.Controllers
             return RedirectToAction("SkillList");
         }
 
-        public ActionResult DeleteSkill(int id) { 
-        var value = context.Skill.Find(id);
+        public ActionResult DeleteSkill(int id)
+        {
+            var value = context.Skill.Find(id);
             context.Skill.Remove(value);
             context.SaveChanges();
             return RedirectToAction("SkillList");
-          
+
+        }
+
+        public ActionResult UpdateSkill(int id)
+        {
+            var value = context.Skill.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateSkill(Skill skill)
+        {
+            var value = context.Skill.Find(skill.SkillId);
+            value.Title = skill.Title;
+            value.Icon = skill.Icon;
+            value.Value = skill.Value;
+            context.SaveChanges();
+            return RedirectToAction("SkillList");
         }
 
 

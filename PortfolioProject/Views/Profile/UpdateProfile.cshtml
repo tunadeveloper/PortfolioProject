@@ -26,16 +26,16 @@
     @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
     <br />
     <label>github</label>
-    @Html.TextBoxFor(x => x.Github, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.Github, new { @class = "form-control text-info" })
     <br />
     <label>Görsel</label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info" })
     <br />
     <img src="@Url.Content(Model.ImageUrl)" alt="Profile Image" style="max-width: 200px;" />
     <br />
     <br />
     <label>Harita</label>
-    @Html.TextBoxFor(x => x.MapLocation, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.MapLocation, new { @class = "form-control text-info" })
     <br />
 
     <button class="btn btn-success">Profili Güncelle</button>

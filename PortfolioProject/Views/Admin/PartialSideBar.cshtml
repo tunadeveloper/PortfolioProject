@@ -1,6 +1,10 @@
-﻿<nav id="sidebar">
+﻿@model List<PortfolioProject.Models.About>
+
+<nav id="sidebar">
     <div class="p-4 pt-5">
-        <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(/Content/sidebar-01/images/logo.jpg); "></a>
+        @foreach(var item in Model) {
+        <a href="/About/AboutList/" class="img logo rounded-circle mb-5" style="background-image: url(@item.ImageUrl); "></a>
+        }
         <ul class="list-unstyled components mb-5">
 
             <li><a href="/About/AboutList/">Hakkımda</a></li>
@@ -21,10 +25,9 @@
 
         <div class="footer">
             <p>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <script>document.write(new Date().getFullYear());</script> Tüm Hakları Saklıdır.
+
             </p>
         </div>
 
