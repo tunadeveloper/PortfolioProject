@@ -14,6 +14,8 @@ namespace PortfolioProject.Controllers
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
         public PartialViewResult PartialContactSideBar()
         {
+            ViewBag.ContactSideBarTitle = context.Settings.Select(x => x.ContactSideBarTitle).FirstOrDefault();
+
             return PartialView();
         }
 

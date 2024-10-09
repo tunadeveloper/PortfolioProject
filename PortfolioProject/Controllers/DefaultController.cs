@@ -36,6 +36,10 @@ namespace PortfolioProject.Controllers
 
         public ActionResult PartialHead()
         {
+        ViewBag.PartialHeadTitle = context.Settings.Select(x=>x.PartialHeadTitle).FirstOrDefault();
+        ViewBag.PartialHeadKeywords = context.Settings.Select(x=>x.PartialHeadKeywords).FirstOrDefault();
+        ViewBag.PartialHeadDesription = context.Settings.Select(x=>x.PartialHeadDescription).FirstOrDefault();
+
             return PartialView();
         }
 
@@ -46,9 +50,9 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialHeader()
         {
-            ViewBag.SideBarTitle = context.About.Select(x => x.SideBarTitle).FirstOrDefault();
-            ViewBag.SideBarName = context.About.Select(x => x.SideBarName).FirstOrDefault();
-            ViewBag.SideBarSubtitle = context.About.Select(x => x.SideBarSubtitle).FirstOrDefault();
+
+            ViewBag.ProfileSideBarName = context.Settings.Select(x => x.ProfileSideBarName).FirstOrDefault();
+            ViewBag.ProfileSideBarTitle = context.Settings.Select(x => x.ProfileSideBarTitle).FirstOrDefault();
 
             ViewBag.title = context.About.Select(x => x.Title).FirstOrDefault();
             ViewBag.detail = context.About.Select(x => x.Detail).FirstOrDefault();
@@ -65,6 +69,8 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialAbout()
         {
+            ViewBag.AboutSideBarTitle = context.Settings.Select(x => x.AboutSideBarTitle).FirstOrDefault();
+
             ViewBag.title = context.Profile.Select(x => x.Title).FirstOrDefault();
             ViewBag.description = context.Profile.Select(x => x.Description).FirstOrDefault();
             ViewBag.phone = context.Profile.Select(x => x.PhoneNumber).FirstOrDefault();
@@ -76,6 +82,8 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialEducation()
         {
+            ViewBag.EducationSideBarTitle = context.Settings.Select(x => x.EducationSideBarTitle).FirstOrDefault();
+
             var values = context.Education.ToList();
             return PartialView(values);
         }
@@ -87,36 +95,49 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialSkill()
         {
+            ViewBag.SkillSideBarTitle = context.Settings.Select(x => x.SkillSideBarTitle).FirstOrDefault();
+
             var values = context.Skill.ToList();
             return PartialView(values);
         }
 
         public PartialViewResult PartialSocialMedia()
         {
+            ViewBag.FooterNameSurname = context.Settings.Select(x=>x.FooterNameSurname).FirstOrDefault();
+            ViewBag.FooterTitle = context.Settings.Select(x=>x.FooterTitle).FirstOrDefault();
+            
             var values = context.SocialMedia.Where(x => x.Status == true).ToList();
             return PartialView(values);
         }
 
         public PartialViewResult PartialExperience()
         {
+            ViewBag.ExperienceSideBarTitle = context.Settings.Select(x => x.ExperienceSideBarTitle).FirstOrDefault();
+
             var values = context.Experience.ToList();
             return PartialView(values);
         }
 
-        public PartialViewResult PartialMyProject() { 
-        
+        public PartialViewResult PartialMyProject()
+        {
+            ViewBag.WorkSideBarTitle =context.Settings.Select(x=>x.WorkSideBarTitle).FirstOrDefault();
+
             var values = context.Work.ToList();
             return PartialView(values);
         }
 
         public PartialViewResult PartialTestimonial()
         {
+            ViewBag.TestimonialSideBarTitle = context.Settings.Select(x=>x.TestimonialSideBarTitle).FirstOrDefault();
+
             var values = context.Testimonial.ToList();
             return PartialView(values);
         }
 
         public PartialViewResult PartialService()
         {
+            ViewBag.ServicesSidebarTitle = context.Settings.Select(x => x.ServicesSideBarTitle).FirstOrDefault();
+
             var values = context.Service.ToList();
             return PartialView(values);
         }

@@ -1,0 +1,72 @@
+﻿@model PortfolioProject.Models.Settings
+@{
+    ViewBag.Title = "UpdateSettings";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+<form method="post">
+    <h2 class="mb-4">Ayarlar</h2>
+    <br />
+    <h2 class="mb-1 alert alert-success">Meta Bilgileri</h2>
+    <br />
+    <label>Site Başlığı</label>
+    @Html.TextBoxFor(x => x.PartialHeadTitle, new { @class = "form-control", maxlength = "150"})
+    <br />
+    <label>Site Açıklaması</label>
+    @Html.TextAreaFor(x => x.PartialHeadDescription, 5, 0, new { @class = "form-control", maxlength = "500" })
+    <br />
+    <label>Anahtar Kelimeler</label>
+    @Html.TextAreaFor(x => x.PartialHeadKeywords, 3, 0, new { @class = "form-control", placeholder = "Örn: software developer, .net, python, web developer", maxlength = "150" })
+    <br />
+    <br />
+    <h2 class="mb-1 alert alert-warning">Yan Menü Başlıkları</h2>
+    <br />
+    <label>İsim</label>
+    @Html.TextBoxFor(x => x.ProfileSideBarName, new { @class = "form-control", maxlength = "30" })
+    
+    <br />
+    <label>Anasayfa Başlığı</label>
+    @Html.TextBoxFor(x => x.ProfileSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    <br />
+
+    <label>Hakkımda Başlığı</label>
+    @Html.TextBoxFor(x => x.AboutSideBarTitle, new { @class = "form-control", maxlength = "60" })
+    <br />
+
+    <label>Eğitimlerim Başlığı</label>
+    @Html.TextBoxFor(x => x.EducationSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    <br />
+
+    <label>Deneyimlerim Başlığı</label>
+    @Html.TextBoxFor(x => x.ExperienceSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    <br />
+
+    <label>Yeteneklerim Başlığı</label>
+    @Html.TextBoxFor(x => x.SkillSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    <br />
+
+    <label>Hizmetlerim Başlığı</label>
+    @Html.TextBoxFor(x => x.ServicesSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    <br />
+
+    <label>Çalışmalarım Başlığı</label>
+    @Html.TextBoxFor(x => x.WorkSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    <br />
+
+    <label>Referanslarım Başlığı</label>
+    @Html.TextBoxFor(x => x.TestimonialSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    <br />
+
+    <label>İletişim Başlığı</label>
+    @Html.TextBoxFor(x => x.ContactSideBarTitle, new { @class = "form-control", maxlength = "150" })
+    <br />
+    <br />
+    <h2 class="mb-1 alert alert-info">Footer</h2>
+    <br />
+    <label>İsim Soyisim</label>
+    @Html.TextBoxFor(x => x.FooterNameSurname, new { @class = "form-control", maxlength = "50" })
+    <br />
+    <label>Footer Yazısı</label>
+    @Html.TextBoxFor(x => x.FooterTitle, new { @class = "form-control", placeholder = "Tüm Hakları Saklıdır.", maxlength = "50" })
+    <br />
+    <button class="btn btn-success">Bilgileri Güncelle</button>
+</form>

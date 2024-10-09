@@ -13,9 +13,6 @@
           <Property Name="Title" Type="nvarchar" MaxLength="250" />
           <Property Name="Detail" Type="nvarchar" MaxLength="1000" />
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
-          <Property Name="SideBarTitle" Type="nvarchar" MaxLength="30" />
-          <Property Name="SideBarName" Type="nvarchar" MaxLength="30" />
-          <Property Name="SideBarSubtitle" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -84,6 +81,27 @@
           <Property Name="Experience1" Type="nvarchar" MaxLength="50" />
           <Property Name="Experience2" Type="nvarchar" MaxLength="50" />
           <Property Name="Experience3" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfileSideBarName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ProfileSideBarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutSideBarTitle" Type="nvarchar" MaxLength="60" />
+          <Property Name="EducationSideBarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExperienceSideBarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="SkillSideBarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServicesSideBarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkSideBarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestimonialSideBarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactSideBarTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="FooterNameSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartialHeadTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="PartialHeadKeywords" Type="nvarchar" MaxLength="150" />
+          <Property Name="PartialHeadDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="FooterTitle" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Skill">
           <Key>
@@ -154,6 +172,7 @@
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SocialMedia" EntityType="Self.SocialMedia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -176,9 +195,6 @@
           <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Detail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="ImageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SideBarTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="SideBarName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="SideBarSubtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -318,6 +334,7 @@
             <End Role="Message" EntitySet="Message" />
           </AssociationSet>
           <EntitySet Name="SocialMedia" EntityType="MyPortfolioDbModel.SocialMedia" />
+          <EntitySet Name="Settings" EntityType="MyPortfolioDbModel.Settings" />
         </EntityContainer>
         <EntityType Name="SocialMedia">
           <Key>
@@ -329,6 +346,27 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="SocialMediaUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfileSideBarName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ProfileSideBarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutSideBarTitle" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="EducationSideBarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExperienceSideBarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SkillSideBarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ServicesSideBarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkSideBarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestimonialSideBarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactSideBarTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FooterNameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartialHeadTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PartialHeadKeywords" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PartialHeadDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FooterTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -338,9 +376,6 @@
           <EntitySetMapping Name="About">
             <EntityTypeMapping TypeName="MyPortfolioDbModel.About">
               <MappingFragment StoreEntitySet="About">
-                <ScalarProperty Name="SideBarSubtitle" ColumnName="SideBarSubtitle" />
-                <ScalarProperty Name="SideBarName" ColumnName="SideBarName" />
-                <ScalarProperty Name="SideBarTitle" ColumnName="SideBarTitle" />
                 <ScalarProperty Name="AboutId" ColumnName="AboutId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
@@ -473,6 +508,28 @@
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="MyPortfolioDbModel.Settings">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="FooterTitle" ColumnName="FooterTitle" />
+                <ScalarProperty Name="PartialHeadDescription" ColumnName="PartialHeadDescription" />
+                <ScalarProperty Name="PartialHeadKeywords" ColumnName="PartialHeadKeywords" />
+                <ScalarProperty Name="PartialHeadTitle" ColumnName="PartialHeadTitle" />
+                <ScalarProperty Name="FooterNameSurname" ColumnName="FooterNameSurname" />
+                <ScalarProperty Name="ContactSideBarTitle" ColumnName="ContactSideBarTitle" />
+                <ScalarProperty Name="TestimonialSideBarTitle" ColumnName="TestimonialSideBarTitle" />
+                <ScalarProperty Name="WorkSideBarTitle" ColumnName="WorkSideBarTitle" />
+                <ScalarProperty Name="ServicesSideBarTitle" ColumnName="ServicesSideBarTitle" />
+                <ScalarProperty Name="SkillSideBarTitle" ColumnName="SkillSideBarTitle" />
+                <ScalarProperty Name="ExperienceSideBarTitle" ColumnName="ExperienceSideBarTitle" />
+                <ScalarProperty Name="EducationSideBarTitle" ColumnName="EducationSideBarTitle" />
+                <ScalarProperty Name="AboutSideBarTitle" ColumnName="AboutSideBarTitle" />
+                <ScalarProperty Name="ProfileSideBarTitle" ColumnName="ProfileSideBarTitle" />
+                <ScalarProperty Name="ProfileSideBarName" ColumnName="ProfileSideBarName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

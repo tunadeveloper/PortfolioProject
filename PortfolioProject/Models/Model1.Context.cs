@@ -37,5 +37,6 @@ namespace PortfolioProject.Models
         public virtual DbSet<Testimonial> Testimonial { get; set; }
         public virtual DbSet<Work> Work { get; set; }
         public virtual DbSet<SocialMedia> SocialMedia { get; set; }
+        public virtual DbSet<Settings> Settings { get; set; }
     }
 }
