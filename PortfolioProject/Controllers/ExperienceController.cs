@@ -5,7 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
-
+using PagedList;
+using PagedList.Mvc;
 namespace PortfolioProject.Controllers
 {
     public class ExperienceController : Controller
@@ -13,9 +14,9 @@ namespace PortfolioProject.Controllers
         // GET: Experience
 
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
-        public ActionResult ExperienceList()
+        public ActionResult ExperienceList(int page = 1)
         {
-            var values = context.Experience.ToList();
+            var values = context.Experience.ToList().ToPagedList(page,3);
             return View(values);
         }
 
@@ -28,6 +29,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult CreateExperience(Experience experience)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateExperience");
+            }
             context.Experience.Add(experience);
             context.SaveChanges();
             return RedirectToAction("ExperienceList");
@@ -50,6 +55,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateExperience(Experience experience)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("UpdateExperience");
+            }
             var value = context.Experience.Find(experience.ExperienceId);
             value.Title = experience.Title;
             value.Description = experience.Description;

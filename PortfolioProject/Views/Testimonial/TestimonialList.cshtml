@@ -1,10 +1,12 @@
-﻿@model List<PortfolioProject.Models.Testimonial>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<PortfolioProject.Models.Testimonial>
 @{
     ViewBag.Title = "TestimonialList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Referanslarım Listesi</h2>
+<h2 class="mb-4 alert alert-warning">Referanslarım Listesi</h2>
 
 <table class="table table-bordered">
     <tr>
@@ -24,12 +26,18 @@
             <td>@item.NameSurname</td>
             <td>@item.Title</td>
             <td>@item.Comment</td>
-            <td><img src="@item.ImageUrl" style="height:54px; width:96px;"  /></td>
+            <td><img src="@item.ImageUrl" style="height:54px; width:96px;" /></td>
             <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialId" class="btn btn-danger">Sil</a></td>
             <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialId" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("TestimonialList", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+<br />
 <a href="/Testimonial/CreateTestimonial/" class="btn btn-info">Yeni Referans Girişi</a>
 
 

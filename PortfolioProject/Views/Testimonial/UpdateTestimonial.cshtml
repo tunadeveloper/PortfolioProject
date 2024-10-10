@@ -4,20 +4,24 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Referans Güncelle</h2>
+<h2 class="mb-4 alert alert-success">Referans Güncelle</h2>
 <form method="post">
     @Html.HiddenFor(x => x.TestimonialId)
     <label>İsim Soyisim</label>
     @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.NameSurname, "", new { @style = "color: red;" })
     <br />
     <label>Başlık</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
     <label>Yorum</label>
-    @Html.TextAreaFor(x => x.Comment,4,0, new { @class = "form-control" })
+    @Html.TextAreaFor(x => x.Comment, 4, 0, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Comment, "", new { @style = "color: red;" })
     <br />
     <label>Fotoğraf Bağlantısı | 100-100px</label>
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info", placeholder = "https://i.hizliresim.com/resim.jpg" })
+    @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @style = "color: red;" })
     <br />
     <button class="btn btn-info">Referansı Güncelle</button>
 </form>

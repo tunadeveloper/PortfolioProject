@@ -4,22 +4,26 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Eğitimi Güncelle</h2>
+<h2 class="mb-4 alert alert-success">Eğitimi Güncelle</h2>
 
 <form method="post">
     @Html.HiddenFor(x => x.EducationId, new { @class = "form-control" })
-    
+
     <label>Kurum Adı</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
     <label>Eğitim Tarihi (YYYY - YYYY)</label>
     @Html.TextBoxFor(x => x.EducationDate, new { @class = "form-control", placeholder = "2022 - 2026" })
+    @Html.ValidationMessageFor(x => x.EducationDate, "", new { @style = "color: red;" })
     <br />
     <label>Bölüm | Pozisyon</label>
     @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Subtitle, "", new { @style = "color: red;" })
     <br />
     <label>Açıklama</label>
     @Html.TextAreaFor(x => x.Description, 5, 0, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color: red;" })
     <br />
     <button class="btn btn-success">Eğitimi Güncelle</button>
 </form>

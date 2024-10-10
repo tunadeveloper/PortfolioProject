@@ -4,11 +4,12 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Kategori Güncelle</h2>
+<h2 class="mb-4 alert alert-success">Kategori Güncelle</h2>
 <form method="post">
     @Html.HiddenFor(x => x.CategoryId)
     <label>Kategori Adı</label>
     @Html.TextBoxFor(x => x.CatagoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CatagoryName, "", new { @style = "color: red;" })
     <br />
     <button class="btn btn-info">Kategoriyi Güncelle</button>
 </form>

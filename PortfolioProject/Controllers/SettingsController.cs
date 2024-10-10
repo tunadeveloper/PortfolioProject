@@ -21,6 +21,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateSettings(Settings settings)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("UpdateSettings");
+            }
             int id = 1;
             var value = context.Settings.Find(id);
 

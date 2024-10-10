@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PagedList;
+using PagedList.Mvc;
 namespace PortfolioProject.Controllers
 {
 
@@ -12,9 +13,9 @@ namespace PortfolioProject.Controllers
     {
         // GET: Category
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
-        public ActionResult CategoryList()
+        public ActionResult CategoryList(int page = 1)
         {
-            var value = context.Category.ToList();
+            var value = context.Category.ToList().ToPagedList(page, 5);
             return View(value);
         }
 
@@ -25,6 +26,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult CreateCategory(Category category)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateCategory");
+            }
             context.Category.Add(category);
               context.SaveChanges();
             return RedirectToAction("CategoryList");
@@ -39,9 +44,12 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateCategory(Category category)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("UpdateCategory");
+            }
             var value = context.Category.Find(category.CategoryId);
             value.CatagoryName = category.CatagoryName;
-            value.CategoryStatus = category.CategoryStatus;
             context.SaveChanges();
             return RedirectToAction("CategoryList");
         }

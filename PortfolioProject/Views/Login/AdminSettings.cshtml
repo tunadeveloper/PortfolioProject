@@ -1,0 +1,27 @@
+﻿@model List<PortfolioProject.Models.Admin>
+@{
+    ViewBag.Title = "AdminSettings";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4 alert alert-warning">Admin İşlemleri</h2>
+@foreach (var item in Model)
+{
+
+    <table class="table table-bordered" style="width: 40%">
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Şifre</th>
+
+        </tr>
+
+        
+            <tr>
+
+                <td>@item.Username</td>
+                <td>@(new string('*', @item.Password.Length))</td>
+            </tr>
+
+        </table>
+        <a href="/Login/UpdateAdmin/@item.Id" class="btn btn-info">Bilgileri Güncelle</a>
+    }

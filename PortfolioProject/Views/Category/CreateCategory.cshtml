@@ -5,10 +5,11 @@
 }
 
 
-<h2 class="mb-4">Yeni kategori Girişi</h2>
+<h2 class="mb-4 alert alert-info">Yeni kategori Girişi</h2>
 <form method="post">
     <label>Kategori Adı</label>
     @Html.TextBoxFor(x => x.CatagoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CatagoryName, "", new { @style = "color: red;"})
     <br />
     <label>Kategori Durumu</label>
     @Html.DropDownListFor(x => x.CategoryStatus, new SelectList(new List<SelectListItem>

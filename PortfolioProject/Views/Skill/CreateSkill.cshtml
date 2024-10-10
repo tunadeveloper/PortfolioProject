@@ -1,19 +1,22 @@
-﻿
+﻿@model PortfolioProject.Models.Skill
 @{
     ViewBag.Title = "CreateSkill";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Yeni Yetenek Girişi</h2>
+<h2 class="mb-4 alert alert-warning">Yeni Yetenek Girişi</h2>
 <form method="post">
     <label>Yetenek Başlığı</label>
-    <input type="text" name="Title" class="form-control"/>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
     <label>Yetenek İkonu</label>
-    <input type="text" name="Icon" class="form-control" placeholder ="fa -fa"/>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control", placeholder = "fa -fa" })
+    @Html.ValidationMessageFor(x => x.Icon, "", new { @style = "color: red;" })
     <br />
     <label>Yetenek Değeri</label>
-    <input type="text" name="Value" class="form-control" placeholder ="00"/>
+    @Html.TextBoxFor(x => x.Value, new { @class = "form-control", placeholder = "00" })
+    @Html.ValidationMessageFor(x => x.Value, "", new { @style = "color: red;" })
     <br />
     <button class="btn btn-info">Yeteneği Oluştur</button>
 </form>

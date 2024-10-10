@@ -1,0 +1,21 @@
+﻿@model PortfolioProject.Models.Admin
+@{
+    ViewBag.Title = "UpdateAdmin";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4 alert alert-success">Bilgileri Güncelle</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+
+    <label>Kullanıcı Adı</label>
+    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Username, "", new { @style = "color: red;" })
+    <br />
+    <label>Şifre</label>
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Password, "", new { @style = "color: red;" })
+    <br />
+    <button class="btn btn-success">Bilgileri Güncelle</button>
+</form>

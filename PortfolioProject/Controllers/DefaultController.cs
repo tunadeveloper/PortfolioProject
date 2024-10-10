@@ -7,10 +7,12 @@ using System.Web.Mvc;
 
 namespace PortfolioProject.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
+
         public ActionResult Index()
         {
             List<SelectListItem> values = (from x in context.Category
@@ -36,9 +38,9 @@ namespace PortfolioProject.Controllers
 
         public ActionResult PartialHead()
         {
-        ViewBag.PartialHeadTitle = context.Settings.Select(x=>x.PartialHeadTitle).FirstOrDefault();
-        ViewBag.PartialHeadKeywords = context.Settings.Select(x=>x.PartialHeadKeywords).FirstOrDefault();
-        ViewBag.PartialHeadDesription = context.Settings.Select(x=>x.PartialHeadDescription).FirstOrDefault();
+            ViewBag.PartialHeadTitle = context.Settings.Select(x => x.PartialHeadTitle).FirstOrDefault();
+            ViewBag.PartialHeadKeywords = context.Settings.Select(x => x.PartialHeadKeywords).FirstOrDefault();
+            ViewBag.PartialHeadDesription = context.Settings.Select(x => x.PartialHeadDescription).FirstOrDefault();
 
             return PartialView();
         }
@@ -76,6 +78,7 @@ namespace PortfolioProject.Controllers
             ViewBag.phone = context.Profile.Select(x => x.PhoneNumber).FirstOrDefault();
             ViewBag.email = context.Profile.Select(x => x.Email).FirstOrDefault();
             ViewBag.imageUrl = context.Profile.Select(x => x.ImageUrl).FirstOrDefault();
+            ViewBag.cv = context.Profile.Select(x => x.Cv).FirstOrDefault();
 
             return PartialView();
         }
@@ -103,9 +106,9 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialSocialMedia()
         {
-            ViewBag.FooterNameSurname = context.Settings.Select(x=>x.FooterNameSurname).FirstOrDefault();
-            ViewBag.FooterTitle = context.Settings.Select(x=>x.FooterTitle).FirstOrDefault();
-            
+            ViewBag.FooterNameSurname = context.Settings.Select(x => x.FooterNameSurname).FirstOrDefault();
+            ViewBag.FooterTitle = context.Settings.Select(x => x.FooterTitle).FirstOrDefault();
+
             var values = context.SocialMedia.Where(x => x.Status == true).ToList();
             return PartialView(values);
         }
@@ -120,7 +123,7 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialMyProject()
         {
-            ViewBag.WorkSideBarTitle =context.Settings.Select(x=>x.WorkSideBarTitle).FirstOrDefault();
+            ViewBag.WorkSideBarTitle = context.Settings.Select(x => x.WorkSideBarTitle).FirstOrDefault();
 
             var values = context.Work.ToList();
             return PartialView(values);
@@ -128,7 +131,7 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult PartialTestimonial()
         {
-            ViewBag.TestimonialSideBarTitle = context.Settings.Select(x=>x.TestimonialSideBarTitle).FirstOrDefault();
+            ViewBag.TestimonialSideBarTitle = context.Settings.Select(x => x.TestimonialSideBarTitle).FirstOrDefault();
 
             var values = context.Testimonial.ToList();
             return PartialView(values);
@@ -141,5 +144,6 @@ namespace PortfolioProject.Controllers
             var values = context.Service.ToList();
             return PartialView(values);
         }
+
     }
 }

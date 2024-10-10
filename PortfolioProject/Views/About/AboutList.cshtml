@@ -4,11 +4,12 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Hakkımda</h2>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<h2 class="mb-4 alert alert-warning">Hakkımda</h2>
 
 <table class="table table-bordered">
     <tr>
-      
         <th>Başlık</th>
         <th>Açıklama</th>
         <th>Fotoğrafım</th>
@@ -18,7 +19,6 @@
     @foreach (var item in Model)
     {
         <tr>
-           
             <td>@item.Title</td>
             <td>@item.Detail</td>
             <td><img src="@item.ImageUrl" style="height:72px; width:128px;" /></td>
@@ -26,3 +26,4 @@
         </tr>
     }
 </table>
+

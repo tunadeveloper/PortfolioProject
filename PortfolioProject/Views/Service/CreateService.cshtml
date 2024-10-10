@@ -4,27 +4,32 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Hizmet Ekle</h2>
+<h2 class="mb-4 alert alert-info">Hizmet Ekle</h2>
 <form method="post">
-    @Html.HiddenFor(x => x.ServiceId, new { @class = "form-control" })
 
     <label>Başlık</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
     <label>Açıklama</label>
     @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color: red;" })
     <br />
     <label>Icon</label>
     @Html.TextBoxFor(x => x.Icon, new { @class = "form-control text-warning", placeholder = "fas fa-bezier-curve fa-3x" })
+    @Html.ValidationMessageFor(x => x.Icon, "", new { @style = "color: red;" })
     <br />
     <label>1. Yetenek</label>
     @Html.TextBoxFor(x => x.Experience1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Experience1, "", new { @style = "color: red;" })
     <br />
     <label>2. Yetenek</label>
     @Html.TextBoxFor(x => x.Experience2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Experience2, "", new { @style = "color: red;" })
     <br />
     <label>3. Yetenek</label>
     @Html.TextBoxFor(x => x.Experience3, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Experience3, "", new { @style = "color: red;" })
     <br />
 
     <button class="btn btn-success">Servisi Güncelle</button>

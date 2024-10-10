@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace PortfolioProject.Controllers
 {
@@ -12,9 +14,9 @@ namespace PortfolioProject.Controllers
     {
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
         // GET: Skill
-        public ActionResult SkillList()
+        public ActionResult SkillList(int page = 1)
         {
-            var values = context.Skill.ToList();
+            var values = context.Skill.ToList().ToPagedList(page, 5);
             return View(values);
         }
 
@@ -27,6 +29,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult CreateSkill(Skill skill)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateSkill");
+            }
             context.Skill.Add(skill);
             context.SaveChanges();
             return RedirectToAction("SkillList");
@@ -50,6 +56,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateSkill(Skill skill)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("UpdateSkill");
+            }
             var value = context.Skill.Find(skill.SkillId);
             value.Title = skill.Title;
             value.Icon = skill.Icon;
@@ -57,6 +67,7 @@ namespace PortfolioProject.Controllers
             context.SaveChanges();
             return RedirectToAction("SkillList");
         }
+       
 
 
     }

@@ -4,34 +4,48 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Profilim</h2>
+<h2 class="mb-4 alert alert-success">Profilim</h2>
 
 <form method="post">
 
     @Html.HiddenFor(x => x.ProfileId)
-   
+
     <label>Başlık</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
     <label>Açıklama</label>
     @Html.TextAreaFor(x => x.Description, 5, 0, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color: red;" })
     <br />
     <label>ADres</label>
     @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Address, "", new { @style = "color: red;" })
     <br />
     <label>Telefon</label>
     @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PhoneNumber, "", new { @style = "color: red;" })
     <br />
     <label>mail</label>
     @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color: red;" })
+    <br />
+    <label>CV</label>
+    @Html.TextBoxFor(x => x.Cv, new { @class = "form-control text-info" })
     <br />
     <label>github</label>
     @Html.TextBoxFor(x => x.Github, new { @class = "form-control text-info" })
+    @Html.ValidationMessageFor(x => x.Github, "", new { @style = "color: red;" })
     <br />
     <label>Görsel</label>
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info" })
     <br />
-    <img src="@Url.Content(Model.ImageUrl)" alt="Profile Image" style="max-width: 200px;" />
+    @if (Model != null && !string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <img src="@Url.Content(Model.ImageUrl)" alt="Profile Image" style="max-width: 200px;" />
+    }
+
+
     <br />
     <br />
     <label>Harita</label>

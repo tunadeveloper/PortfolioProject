@@ -11,8 +11,7 @@ namespace PortfolioProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
-
+    
     public partial class Settings
     {
         public int Id { get; set; }

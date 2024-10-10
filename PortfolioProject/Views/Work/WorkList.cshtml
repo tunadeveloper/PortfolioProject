@@ -1,10 +1,12 @@
-﻿@model List<PortfolioProject.Models.Work>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<PortfolioProject.Models.Work>
 @{
     ViewBag.Title = "WorkList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">WorkList</h2>
+<h2 class="mb-4 alert alert-warning">WorkList</h2>
 
 <form method="post">
     <table class="table table-bordered">
@@ -17,18 +19,24 @@
             <th>Sil</th>
             <th>Güncelle</th>
         </tr>
-        @foreach(var item in Model) {
-        <tr>
-            <td>@item.WorkId</td>
-            <td>@item.Title</td>
-            <td>@item.Description</td>
-            <td><img src="@item.ImageUrl" style="height:54px; width:96px;"/></td>
-            <td class="text-info">@item.GithubUrl</td>
-            <td><a href="/Work/DeleteWork/@item.WorkId" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Work/UpdateWork/@item.WorkId" class="btn btn-success">Güncelle</a></td>
-        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.WorkId</td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td><img src="@item.ImageUrl" style="height:54px; width:96px;" /></td>
+                <td class="text-info">@item.GithubUrl</td>
+                <td><a href="/Work/DeleteWork/@item.WorkId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Work/UpdateWork/@item.WorkId" class="btn btn-success">Güncelle</a></td>
+            </tr>
         }
     </table>
 </form>
-
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("WorkList", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+<br />
 <a href="/Work/CreateWork/" class="btn btn-info">Yeni Proje Ekle</a>

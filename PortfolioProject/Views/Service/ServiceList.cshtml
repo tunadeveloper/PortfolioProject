@@ -1,10 +1,12 @@
-﻿@model List<PortfolioProject.Models.Service>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<PortfolioProject.Models.Service>
 @{
     ViewBag.Title = "ServiceList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Hizmetlerim Listesi</h2>
+<h2 class="mb-4 alert alert-warning">Hizmetlerim Listesi</h2>
 
 <table class="table table-bordered">
     <tr>
@@ -34,5 +36,11 @@
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("ServiceList", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+<br />
 <a href="/Service/CreateService/" class="btn btn-info">Yeni Hizmet Girişi</a>
 

@@ -1,8 +1,10 @@
 ﻿using PortfolioProject.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace PortfolioProject.Controllers
@@ -26,6 +28,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateAbout(About about)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("UpdateAbout");
+            }
             var value = context.About.Find(about.AboutId);
             value.Title = about.Title;
             value.Detail = about.Detail;
@@ -33,5 +39,8 @@ namespace PortfolioProject.Controllers
             context.SaveChanges();
             return RedirectToAction("AboutList");
         }
+
+
+
     }
 }

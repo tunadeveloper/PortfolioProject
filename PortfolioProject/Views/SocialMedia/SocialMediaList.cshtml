@@ -1,10 +1,12 @@
-﻿@model List<PortfolioProject.Models.SocialMedia>
+﻿@using PagedList.Mvc
+@using PagedList
+@model IPagedList<PortfolioProject.Models.SocialMedia>
 @{
     ViewBag.Title = "SocialMediaList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Sosyal Medya</h2>
+<h2 class="mb-4 alert alert-warning">Sosyal Medya</h2>
 
 <table class="table table-bordered">
     <tr>
@@ -41,4 +43,10 @@
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("SocialMediaList", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+<br />
 <a href="/SocialMedia/CreateSocialMedia/" class="btn btn-info">Yeni Sosyal Medya Ekle</a>

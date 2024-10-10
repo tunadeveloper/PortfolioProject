@@ -4,17 +4,20 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">CreateSocialMedia</h2>
+<h2 class="mb-4 alert alert-info">CreateSocialMedia</h2>
 
 <form method="post">
     <label>Sosyal Medya Adı</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
     <label>Icon</label>
     @Html.TextBoxFor(x => x.Icon, new { @class = "form-control text-warning" })
+    @Html.ValidationMessageFor(x => x.Icon, "", new { @style = "color: red;" })
     <br />
     <label>Sosyal Medya Bağlantısı</label>
     @Html.TextBoxFor(x => x.SocialMediaUrl, new { @class = "form-control text-info", placeholder = "https://instagram.com/username" })
+    @Html.ValidationMessageFor(x => x.SocialMediaUrl, "", new { @style = "color: red;" })
     <br />
     <label>Durum</label>
     @Html.DropDownListFor(x => x.Status, new SelectList(new List<SelectListItem>

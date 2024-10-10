@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PagedList.Mvc;
+using PagedList;
 namespace PortfolioProject.Controllers
 {
     public class ServiceController : Controller
     {
         // GET: Service
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
-        public ActionResult ServiceList()
+        public ActionResult ServiceList(int page = 1)
         {
-            var value = context.Service.ToList();
+            var value = context.Service.ToList().ToPagedList(page,7);
             return View(value);
         }
 
@@ -34,6 +35,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateService(Service service)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("UpdateService");
+            }
             var value = context.Service.Find(service.ServiceId);
             value.Title = service.Title;
             value.Description = service.Description;
@@ -53,6 +58,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult CreateService(Service service)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateService");
+            }
             context.Service.Add(service);
             context.SaveChanges();
             return RedirectToAction("ServiceList");

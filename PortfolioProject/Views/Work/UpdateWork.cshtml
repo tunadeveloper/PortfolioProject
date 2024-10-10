@@ -4,22 +4,26 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Update</h2>
+<h2 class="mb-4 alert alert-success">Update</h2>
 
 <form method="post">
     @Html.HiddenFor(x => x.WorkId)
 
     <label>Başlık</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
     <label>Açıklama</label>
     @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color: red;" })
     <br />
     <label>Görsel URL</label>
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info" })
+    @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @style = "color: red;" })
     <br />
     <label>Github URL</label>
     @Html.TextBoxFor(x => x.GithubUrl, new { @class = "form-control text-info" })
+    @Html.ValidationMessageFor(x => x.GithubUrl, "", new { @style = "color: red;" })
     <br />
     <button class="btn btn-info">Projeyi Güncelle</button>
 </form>

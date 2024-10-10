@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
 
+using PagedList;
 namespace PortfolioProject.Controllers
 {
     public class TestimonialController : Controller
     {
         // GET: Testimonial
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
-        public ActionResult TestimonialList()
+        public ActionResult TestimonialList(int page = 1)
         {
-            var value = context.Testimonial.ToList();
+            var value = context.Testimonial.ToList().ToPagedList(page,3);
             return View(value);
         }
 
@@ -25,6 +27,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult CreateTestimonial(Testimonial testimonial)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateTestimonial");
+            }
             context.Testimonial.Add(testimonial);
             context.SaveChanges();
             return RedirectToAction("TestimonialList");
@@ -40,6 +46,10 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateTestimonial(Testimonial testimonial)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("UpdateTestimonial");
+            }
             var value = context.Testimonial.Find(testimonial.TestimonialId);
             value.NameSurname = testimonial.NameSurname;
             value.Title = testimonial.Title;

@@ -1,10 +1,12 @@
-﻿@model List<PortfolioProject.Models.Experience>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<PortfolioProject.Models.Experience>
 @{
     ViewBag.Title = "ExperienceList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Deneyimlerim Listesi</h2>
+<h2 class="mb-4 alert alert-warning">Deneyimlerim Listesi</h2>
 
 <table class="table table-bordered">
     <tr>
@@ -30,5 +32,11 @@
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("ExperienceList", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+<br />
 <a href="/Experience/CreateExperience/" class="btn btn-info">Yeni Deneyim Girişi</a>
 

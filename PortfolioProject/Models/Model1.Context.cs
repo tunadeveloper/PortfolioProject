@@ -38,5 +38,6 @@ namespace PortfolioProject.Models
         public virtual DbSet<Work> Work { get; set; }
         public virtual DbSet<SocialMedia> SocialMedia { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
     }
 }

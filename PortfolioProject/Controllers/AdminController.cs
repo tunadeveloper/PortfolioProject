@@ -25,6 +25,7 @@ namespace PortfolioProject.Controllers
         }
         public PartialViewResult PartialNavbar()
         {
+            ViewBag.cv = context.Profile.Select(x => x.Cv).FirstOrDefault();
             return PartialView();
         }
 

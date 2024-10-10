@@ -18,25 +18,28 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public ActionResult UpdateProfile(Profile profile)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(profile);
+            }
+
             int id = 1;
             var value = context.Profile.Find(id);
 
-            if (ModelState.IsValid && value != null)
-            {
-                
-                value.Title = profile.Title;
-                value.Description = profile.Description;
-                value.Address = profile.Address;
-                value.PhoneNumber = profile.PhoneNumber;
-                value.Email = profile.Email;
-                value.Github = profile.Github;
-                value.ImageUrl = profile.ImageUrl;
-                value.MapLocation = profile.MapLocation;
+            value.Title = profile.Title;
+            value.Description = profile.Description;
+            value.Address = profile.Address;
+            value.PhoneNumber = profile.PhoneNumber;
+            value.Email = profile.Email;
+            value.Cv = profile.Cv;
+            value.Github = profile.Github;
+            value.ImageUrl = profile.ImageUrl;
+            value.MapLocation = profile.MapLocation;
 
-                context.SaveChanges();
-                return RedirectToAction("UpdateProfile");
-            }
-            return View(value);
+            context.SaveChanges();
+            return View("UpdateProfile", value);
         }
+        
+
     }
 }

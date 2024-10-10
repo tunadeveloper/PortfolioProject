@@ -64,37 +64,37 @@
                                             <div class="row g-3">
                                                 <div class="col-lg-12 col-xl-6">
                                                     <div class="form-floating">
-                                                        <input type="text" class="form-control border-0" id="name" placeholder="Ad Soyad" name="Name">
+                                                        <input type="text" class="form-control border-0" id="name" placeholder="Ad Soyad" name="Name" maxlength="50" required>
                                                         <label for="name">Ad Soyad</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-xl-6">
                                                     <div class="form-floating">
-                                                        <input type="email" class="form-control border-0" id="email" placeholder="Email Adresi" name="Email">
+                                                        <input type="email" class="form-control border-0" id="email" placeholder="Email Adresi" name="Email" maxlength="50" required>
                                                         <label for="email">Email Adresi</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-xl-6">
                                                     <div class="form-floating">
-                                                        <input type="tel" class="form-control border-0" id="phone" placeholder="Telefon Numarası" name="PhoneNumber">
+                                                        <input type="tel" class="form-control border-0" id="phone" placeholder="Telefon Numarası" name="PhoneNumber" maxlength="50">
                                                         <label for="phone">Telefon Numarası</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-xl-6">
                                                     <div class="form-floating">
-                                                        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+                                                        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control "})
                                                         <label for="project">Konu</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <input type="text" class="form-control border-0" id="subject" placeholder="Konu" name="Subject">
+                                                        <input type="text" class="form-control border-0" id="subject" placeholder="Konu" name="Subject" maxlength="50" required>
                                                         <label for="subject">Konu</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating">
-                                                        <textarea class="form-control border-0" placeholder="Açıklama" id="message" style="height: 120px" name="MessageDetail"></textarea>
+                                                        <textarea class="form-control border-0" placeholder="Açıklama" id="message" style="height: 120px" name="MessageDetail"  maxlength="1000" required></textarea>
                                                         <label for="message">Açıklama</label>
                                                     </div>
 

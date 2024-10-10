@@ -6,69 +6,83 @@
 }
 
 <form method="post">
-    <h2 class="mb-4">Ayarlar</h2>
+    <h2 class="mb-4 alert alert-dark">Ayarlar</h2>
     <br />
     <h2 class="mb-1 alert alert-success">Meta Bilgileri</h2>
     <br />
     <label>Site Başlığı</label>
-    @Html.TextBoxFor(x => x.PartialHeadTitle, new { @class = "form-control", maxlength = "150"})
+    @Html.TextBoxFor(x => x.PartialHeadTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PartialHeadTitle, "", new { @style = "color: red;" })
     <br />
     <label>Site Açıklaması</label>
-    @Html.TextAreaFor(x => x.PartialHeadDescription, 5, 0, new { @class = "form-control", maxlength = "500" })
+    @Html.TextAreaFor(x => x.PartialHeadDescription, 5, 0, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PartialHeadDescription, "", new { @style = "color: red;" })
     <br />
     <label>Anahtar Kelimeler</label>
-    @Html.TextAreaFor(x => x.PartialHeadKeywords, 3, 0, new { @class = "form-control", placeholder = "Örn: software developer, .net, python, web developer", maxlength = "150" })
+    @Html.TextAreaFor(x => x.PartialHeadKeywords, 3, 0, new { @class = "form-control", placeholder = "Örn: software developer, .net, python, web developer" })
+    @Html.ValidationMessageFor(x => x.PartialHeadKeywords, "", new { @style = "color: red;" })
     <br />
     <br />
     <h2 class="mb-1 alert alert-warning">Yan Menü Başlıkları</h2>
     <br />
     <label>İsim</label>
-    @Html.TextBoxFor(x => x.ProfileSideBarName, new { @class = "form-control", maxlength = "30" })
-    
+    @Html.TextBoxFor(x => x.ProfileSideBarName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ProfileSideBarName, "", new { @style = "color: red;" })
     <br />
     <label>Anasayfa Başlığı</label>
-    @Html.TextBoxFor(x => x.ProfileSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    @Html.TextBoxFor(x => x.ProfileSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ProfileSideBarTitle, "", new { @style = "color: red;" })
     <br />
 
     <label>Hakkımda Başlığı</label>
-    @Html.TextBoxFor(x => x.AboutSideBarTitle, new { @class = "form-control", maxlength = "60" })
+    @Html.TextBoxFor(x => x.AboutSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.AboutSideBarTitle, "", new { @style = "color: red;" })
     <br />
 
     <label>Eğitimlerim Başlığı</label>
-    @Html.TextBoxFor(x => x.EducationSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    @Html.TextBoxFor(x => x.EducationSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.EducationSideBarTitle, "", new { @style = "color: red;" })
     <br />
 
     <label>Deneyimlerim Başlığı</label>
-    @Html.TextBoxFor(x => x.ExperienceSideBarTitle, new { @class = "form-control", maxlength = "50" })
-    <br />
+    @Html.TextBoxFor(x => x.ExperienceSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ExperienceSideBarTitle, "", new { @style = "color: red;" })
 
+    <br />
     <label>Yeteneklerim Başlığı</label>
-    @Html.TextBoxFor(x => x.SkillSideBarTitle, new { @class = "form-control", maxlength = "50" })
-    <br />
+    @Html.TextBoxFor(x => x.SkillSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SkillSideBarTitle, "", new { @style = "color: red;" })
 
+    <br />
     <label>Hizmetlerim Başlığı</label>
-    @Html.TextBoxFor(x => x.ServicesSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    @Html.TextBoxFor(x => x.ServicesSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ServicesSideBarTitle, "", new { @style = "color: red;" })
     <br />
 
     <label>Çalışmalarım Başlığı</label>
-    @Html.TextBoxFor(x => x.WorkSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    @Html.TextBoxFor(x => x.WorkSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.WorkSideBarTitle, "", new { @style = "color: red;" })
     <br />
 
     <label>Referanslarım Başlığı</label>
-    @Html.TextBoxFor(x => x.TestimonialSideBarTitle, new { @class = "form-control", maxlength = "50" })
+    @Html.TextBoxFor(x => x.TestimonialSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.TestimonialSideBarTitle, "", new { @style = "color: red;" })
     <br />
 
     <label>İletişim Başlığı</label>
-    @Html.TextBoxFor(x => x.ContactSideBarTitle, new { @class = "form-control", maxlength = "150" })
+    @Html.TextBoxFor(x => x.ContactSideBarTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ContactSideBarTitle, "", new { @style = "color: red;" })
     <br />
     <br />
     <h2 class="mb-1 alert alert-info">Footer</h2>
     <br />
     <label>İsim Soyisim</label>
-    @Html.TextBoxFor(x => x.FooterNameSurname, new { @class = "form-control", maxlength = "50" })
+    @Html.TextBoxFor(x => x.FooterNameSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.FooterNameSurname, "", new { @style = "color: red;" })
     <br />
     <label>Footer Yazısı</label>
-    @Html.TextBoxFor(x => x.FooterTitle, new { @class = "form-control", placeholder = "Tüm Hakları Saklıdır.", maxlength = "50" })
+    @Html.TextBoxFor(x => x.FooterTitle, new { @class = "form-control", placeholder = "Tüm Hakları Saklıdır." })
+    @Html.ValidationMessageFor(x => x.FooterTitle, "", new { @style = "color: red;" })
     <br />
     <button class="btn btn-success">Bilgileri Güncelle</button>
 </form>

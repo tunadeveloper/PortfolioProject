@@ -1,10 +1,13 @@
-﻿@model List<PortfolioProject.Models.Skill>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<PortfolioProject.Models.Skill>
+
 @{
     ViewBag.Title = "SkillList";
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4">Yeteneklerim Listesi</h2>
+<h2 class="mb-4 alert alert-warning">Yeteneklerim Listesi</h2>
 
 <table class="table table-bordered">
     <tr>
@@ -15,15 +18,23 @@
         <th>Güncelle</th>
     </tr>
 
-    @foreach(var item in Model)
-            {
-                <tr>
-                    <td>@item.SkillId</td>
-                    <td>@item.Title</td>
-                    <td>@item.Value</td>
-                    <td><a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-danger">Sil</a></td>
-                    <td><a href="/Skill/UpdateSkill/@item.SkillId" class="btn btn-success">Güncelle</a></td>
-                </tr>
-            }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SkillId</td>
+            <td>@item.Title</td>
+            <td>@item.Value</td>
+            <td><a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Skill/UpdateSkill/@item.SkillId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
 </table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("SkillList", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+<br />
 <a href="/Skill/CreateSkill/" class="btn btn-info">Yeni Yetenek Ekle</a>
+<br /><br /><br />
+@Html.Action("PartialChartSkill", "Chart")

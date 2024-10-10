@@ -1,42 +1,63 @@
-﻿@model List<PortfolioProject.Models.Message>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<PortfolioProject.Models.Message>
 @{
     ViewBag.Title = "Inbox";
     Layout = "~/Views/Admin/Index.cshtml";
 }
+@{
+    var categoryColors = new Dictionary<string, string>();
+    var colors = new string[] { "#00FF9C", "#F95454", "#3357FF", "#FABC3F", "#8105D8", "#ED3EF7", "#FFDAB9", "#D2691E", "#40E0D0", "#FA8072" };
+    int colorIndex = 0;
+}
 
-<h2 class="mb-4">Gelen Mesajlar</h2>
-   
+<h2 class="mb-4 alert alert-warning">Gelen Mesajlar</h2>
+
 <table class="table table-bordered">
     <tr>
         <th>#</th>
         <th>Gönderen</th>
         <th>Konu</th>
         <th>Tarih</th>
-        <th>kategori</th>
+        <th>Kategori</th>
         <th>Durum</th>
+        <th>Değiştir</th>
         <th>Sil</th>
         <th>Mesajı Aç</th>
     </tr>
     @foreach (var item in Model)
     {
+        if (!categoryColors.ContainsKey(item.Category.CatagoryName))
+        {
+            categoryColors[item.Category.CatagoryName] = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.Length;
+        }
+
         <tr>
             <td>@item.MessageId</td>
             <td>@item.Name</td>
             <td>@item.Subject</td>
             <td>@item.SendDate</td>
-            <td>@item.Category.CatagoryName</td>
+            <td style="color:@categoryColors[item.Category.CatagoryName]">
+                @item.Category.CatagoryName
+            </td>
             @if (item.IsRead == false)
             {
-
-
+                <td><a href="/Message/MessageStatusChangeToTrue/@item.MessageId" class="btn btn-danger" style="padding: 2px 6px; font-size: 12px;">Okunmadı</a></td>
                 <td><a href="/Message/MessageStatusChangeToTrue/@item.MessageId" class="btn btn-warning">Okundu Olarak İşaretle</a></td>
             }
             else
             {
+                <td><a href="/Message/MessageStatusChangeToFalse/@item.MessageId" class="btn btn-success" style="padding: 2px 14px; font-size: 12px;">Okundu</a></td>
                 <td><a href="/Message/MessageStatusChangeToFalse/@item.MessageId" class="btn btn-info">Okunmadı Olarak İşaretle</a></td>
             }
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger">Sil</a></td>
             <td><a href="/Message/MessageDetails/@item.MessageId" class="btn btn-secondary">Mesajı Aç</a></td>
         </tr>
-        }
-    </table>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Inbox", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link"}
+})

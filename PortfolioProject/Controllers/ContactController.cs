@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace PortfolioProject.Controllers
 {
+    [AllowAnonymous]
     public class ContactController : Controller
     {
         // GET: Contact
