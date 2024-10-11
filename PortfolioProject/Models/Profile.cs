@@ -21,7 +21,7 @@ namespace PortfolioProject.Models
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
-        [MaxLength(300, ErrorMessage = "En fazla 300 karakter olmalýdýr.")]
+        [MaxLength(1000, ErrorMessage = "En fazla 1000 karakter olmalýdýr.")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Bu alan boþ geçilemez.")]

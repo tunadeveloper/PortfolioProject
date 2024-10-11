@@ -16,9 +16,9 @@ namespace PortfolioProject.Models
     public partial class About
     {
         public int AboutId { get; set; }
-        
+
         [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
-        [MaxLength(250, ErrorMessage = "En fazla 250 karakter olmalýdýr.")]
+        [MaxLength(250, ErrorMessage = "En fazla 250 karakterolmalýdýr.")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Bu alan boþ geçilemez.")]

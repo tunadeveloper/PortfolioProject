@@ -10,8 +10,8 @@
     @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.CompanyName, "", new { @style = "color: red;" })
     <br />
-    <label>Çalışma Tarihi</label>
-    @Html.TextBoxFor(x => x.WorkDate, new { @class = "form-control" })
+    <label>Çalışma Tarihi (YYYY - YYYY)</label>
+    @Html.TextBoxFor(x => x.WorkDate, new { @class = "form-control", placeholder = "2022-2026" })
     @Html.ValidationMessageFor(x => x.WorkDate, "", new { @style = "color: red;" })
     <br />
     <label>Unvan</label>

@@ -26,7 +26,6 @@ namespace PortfolioProject.Models
         public string Icon { get; set; }
 
         [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
-        [MaxLength(3, ErrorMessage = "En fazla 3 karakter olmalýdýr.")]
         public Nullable<byte> Value { get; set; }
     }
 }

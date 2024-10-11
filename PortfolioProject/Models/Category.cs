@@ -20,14 +20,14 @@ namespace PortfolioProject.Models
         {
             this.Message = new HashSet<Message>();
         }
-    
+
         public int CategoryId { get; set; }
 
         [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
         [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string CatagoryName { get; set; }
         public Nullable<bool> CategoryStatus { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Message> Message { get; set; }
         public object CategoryName { get; internal set; }

@@ -7,11 +7,11 @@
     int index = 0;
 }
 
-<h2 class="mb-4 alert alert-warning">Referanslarım Listesi</h2>
+<h2 class="mb-4 alert alert-warning">Referanslar Listesi</h2>
 
 <table class="table table-bordered">
     <tr style="background-color:cornflowerblue; color:white;">
-        <th>Id</th>
+        <th>#</th>
         <th>İsim Soyisim</th>
         <th>Başlık</th>
         <th>Yorum</th>
@@ -29,7 +29,7 @@
             <td>@item.NameSurname</td>
             <td>@item.Title</td>
             <td>@item.Comment</td>
-            <td><img src="@item.ImageUrl" style="height:54px; width:96px;" /></td>
+            <td><img src="@item.ImageUrl" style="height:54px; width:76px;" /></td>
             <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialId" class="btn btn-danger">Sil</a></td>
             <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialId" class="btn btn-success">Güncelle</a></td>
         </tr>
