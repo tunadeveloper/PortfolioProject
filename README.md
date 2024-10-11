@@ -1,3 +1,70 @@
+# 🖼️ **Portfolyo Projesi**
+
+---
+
+## 🌟 **Genel Bakış**
+
+Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüştürmektedir. Kullanıcılar, profesyonel bilgilerini görsel olarak düzenlenmiş ve organize bir şekilde sergileyebilir.
+
+- 👤 Kullanıcılar, kişisel bilgilerini dinamik olarak ekleyebilir, güncelleyebilir ve silebilir.
+- 🔒 **Admin paneline sadece authentication olan kullanıcılar** erişebilir. Admin paneline erişim sağlamak isteyen bir kullanıcı giriş yapmamışsa, **login** sayfasına yönlendirilir.
+- ✅ **Her giriş için validasyon** uygulanarak hatalı ya da eksik veri girişi engellenir.
+- 🔧 **SEO (meta) işlemleri** admin paneli üzerinden kolayca gerçekleştirilebilir; başlık, açıklama ve anahtar kelimeler gibi SEO ayarları dinamik olarak düzenlenebilir.
+- 📊 **ChartJs** kullanılarak yeteneklerin oranı görsel olarak grafiklerle gösterilmiştir.
+- 📈 Bazı tabloların **istatistikleri** de admin panelinde tutulmaktadır.
+- 🧭 Kolay navigasyon için **NavBar** ve **Sidebar** özellikleri eklendi, sayfalar arası geçişler basit ve kullanıcı dostu hale getirildi.
+
+---
+
+## 🚀 **Özellikler**
+
+- 📝 Dinamik portfolyo bilgisi yönetimi
+- 🔧 İçerik yönetimi için admin paneli
+- 🛠️ **CRUD** işlemleri (Ekle, Listele, Güncelle, Sil)
+- 🌐 Sosyal medya yönlendirmeleri
+- ✉️ Ziyaretçiler için iletişim formu
+- 💻 **Bootstrap** ile temiz ve duyarlı tasarım
+- 🔐 **Authentication** olmayan kullanıcılar admin sayfasına erişemez
+- ✅ Her veri girişi için validasyon kontrolleri
+- 🔍 Dinamik SEO yönetimi
+- 📊 **ChartJs** ile yetenek oranları ve istatistikler
+
+---
+
+## ⚙️ **Kullanılan Teknolojiler**
+
+- 💻 Web uygulaması yapısı için **ASP.NET MVC Framework**
+- 🛠️ ORM (Object-Relational Mapping) aracı olarak **Entity Framework**
+- 🗄️ Veritabanı olarak **MSSQL Server**
+- 🏗️ Veritabanı modellemesi için **DB First** yaklaşımı
+- 🔎 Verileri etkin bir şekilde sorgulamak için **LINQ**
+- 🎨 Duyarlı tasarım için **HTML/CSS** ve **Bootstrap**
+- 📄 Sayfalar arası geçişleri kolaylaştırmak için **Partial Views**
+- ⚡ **jQuery** ile etkileşimli özellikler
+- 📊 **ChartJs** ile grafik oluşturma
+
+---
+
+## 🛠️ **Kurulum Adımları**
+
+1. 📥 Depoyu klonlayın:  
+   `git clone https://github.com/tunadeveloper/PortfolioProject.git`
+2. 🖥️ Projeyi Visual Studio'da açın.
+3. 🗄️ **MSSQL Server**'ın yüklü ve yapılandırılmış olduğundan emin olun.
+4. 📝 `web.config` dosyasındaki bağlantı dizgisini yerel veritabanı ayarlarınıza göre güncelleyin.
+5. ▶️ Projeyi Visual Studio'nun IIS Express'i kullanarak çalıştırın.
+
+---
+
+## 📷 **Ekran Görüntüleri**
+
+Portfolyo bölümlerinin, yönetim panelinin ve iletişim formunun ekran görüntülerini buraya ekleyebilirsiniz.
+
+---
+
+🎉 **Ve daha fazlası...**
+
+
 ![1](https://github.com/user-attachments/assets/81ff159e-4b19-4e4a-8046-f9468ba0db6c)
 ![2](https://github.com/user-attachments/assets/ca710f86-d643-4fbf-8938-affdbc7da7e8)
 ![3](https://github.com/user-attachments/assets/a66a3a57-4c73-4597-9562-c399c039c9f7)
