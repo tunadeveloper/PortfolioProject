@@ -54,7 +54,7 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 
 ## 📷 **Proje Görselleri**
 
-### **Login Paneli**
+## **Login Paneli**
 ![1](https://github.com/user-attachments/assets/81ff159e-4b19-4e4a-8046-f9468ba0db6c)
 
 ### **Admin Paneli**
@@ -77,7 +77,7 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 ![18](https://github.com/user-attachments/assets/69c65cc6-2081-4814-b395-539f760b3267)
 ![19](https://github.com/user-attachments/assets/3d0a86f8-218f-4e9f-99ef-81c09b5f053c)
 
-### **Default Paneli**
+## **Default Paneli**
 ![20](https://github.com/user-attachments/assets/9cbb68d3-6235-4147-9334-942c712e351e)
 ![21](https://github.com/user-attachments/assets/7a4df4f8-5bf7-44b0-afe5-357ee98043e1)
 ![22](https://github.com/user-attachments/assets/b44ab5f5-8485-41be-a9c4-ce952a6efc32)
@@ -91,7 +91,7 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 ![30](https://github.com/user-attachments/assets/e4f868f3-17a4-4289-a95f-5a82775d3302)
 ![31](https://github.com/user-attachments/assets/916eb19c-b1f9-4dd0-b9e7-5ffc2b5a3f97)
 
-### **Model Şeması**
+## **Model Şeması**
 ![db](https://github.com/user-attachments/assets/6060138b-e9f9-4f21-95bb-222d83733072)
 
 
