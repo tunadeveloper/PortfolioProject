@@ -11,22 +11,12 @@ namespace PortfolioProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class About
     {
         public int AboutId { get; set; }
-
-        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
-        [MaxLength(250, ErrorMessage = "En fazla 250 karakterolmalýdýr.")]
         public string Title { get; set; }
-
-        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
-        [MaxLength(1000, ErrorMessage = "En fazla 1000 karakter olmalýdýr.")]
         public string Detail { get; set; }
-
-        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
-        [MaxLength(250, ErrorMessage = "En fazla 250 karakter olmalýdýr.")]
         public string ImageUrl { get; set; }
     }
 }
