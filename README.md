@@ -8,11 +8,10 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 
 - 👤 Kullanıcılar, kişisel bilgilerini dinamik olarak ekleyebilir, güncelleyebilir ve silebilir.
 - 🔒 **Admin paneline sadece authentication olan kullanıcılar** erişebilir. Admin paneline erişim sağlamak isteyen bir kullanıcı giriş yapmamışsa, **login** sayfasına yönlendirilir.
-- ✅ **Her giriş için validasyon** uygulanarak hatalı ya da eksik veri girişi engellenir.
+- ✅ **Her veri girişi için validasyon** uygulanarak hatalı ya da eksik veri girişi engellenir.
 - 🔧 **SEO (meta) işlemleri** admin paneli üzerinden kolayca gerçekleştirilebilir; başlık, açıklama ve anahtar kelimeler gibi SEO ayarları dinamik olarak düzenlenebilir.
 - 📊 **ChartJs** kullanılarak yeteneklerin oranı görsel olarak grafiklerle gösterilmiştir.
-- 📈 Bazı tabloların **istatistikleri** de admin panelinde tutulmaktadır.
-- 🧭 Kolay navigasyon için **NavBar** ve **Sidebar** özellikleri eklendi, sayfalar arası geçişler basit ve kullanıcı dostu hale getirildi.
+- 📈 Bazı tabloların **istatistikleri** admin panelinde, **İstatistikler** sekmesinde tutulmaktadır.
 
 ---
 
@@ -24,9 +23,6 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 - 🌐 Sosyal medya yönlendirmeleri
 - ✉️ Ziyaretçiler için iletişim formu
 - 💻 **Bootstrap** ile temiz ve duyarlı tasarım
-- 🔐 **Authentication** olmayan kullanıcılar admin sayfasına erişemez
-- ✅ Her veri girişi için validasyon kontrolleri
-- 🔍 Dinamik SEO yönetimi
 - 📊 **ChartJs** ile yetenek oranları ve istatistikler
 
 ---
@@ -41,7 +37,7 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 - 🎨 Duyarlı tasarım için **HTML/CSS** ve **Bootstrap**
 - 📄 Sayfalar arası geçişleri kolaylaştırmak için **Partial Views**
 - ⚡ **jQuery** ile etkileşimli özellikler
-- 📊 **ChartJs** ile grafik oluşturma
+- 📊 **ChartJs** ile görsel grafik
 
 ---
 
@@ -57,13 +53,6 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 ---
 
 ## 📷 **Ekran Görüntüleri**
-
-Portfolyo bölümlerinin, yönetim panelinin ve iletişim formunun ekran görüntülerini buraya ekleyebilirsiniz.
-
----
-
-🎉 **Ve daha fazlası...**
-
 
 ![1](https://github.com/user-attachments/assets/81ff159e-4b19-4e4a-8046-f9468ba0db6c)
 ![2](https://github.com/user-attachments/assets/ca710f86-d643-4fbf-8938-affdbc7da7e8)
@@ -97,3 +86,8 @@ Portfolyo bölümlerinin, yönetim panelinin ve iletişim formunun ekran görün
 ![30](https://github.com/user-attachments/assets/e4f868f3-17a4-4289-a95f-5a82775d3302)
 ![31](https://github.com/user-attachments/assets/916eb19c-b1f9-4dd0-b9e7-5ffc2b5a3f97)
 ![db](https://github.com/user-attachments/assets/6060138b-e9f9-4f21-95bb-222d83733072)
+
+
+---
+
+🎉 **Ve daha fazlası...**
