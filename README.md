@@ -52,8 +52,8 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 
 ---
 
-## 📷 *Proje Görselleri*
-
+## 📷 **Proje Görselleri**
+---
 ## **Login Paneli**
 ![1](https://github.com/user-attachments/assets/81ff159e-4b19-4e4a-8046-f9468ba0db6c)
 
