@@ -11,7 +11,7 @@ namespace PortfolioProject.Controllers
     {
         // GET: Chart
         MyPortfolioDbEntities context = new MyPortfolioDbEntities();
-        
+
         public PartialViewResult PartialChartSkill()
         {
             var value = context.Skill.ToList();

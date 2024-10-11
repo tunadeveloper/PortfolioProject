@@ -68,7 +68,10 @@ namespace PortfolioProject.Controllers
             return RedirectToAction("SkillList");
         }
        
-
+        public PartialViewResult SkillIcon()
+        {
+            return PartialView();
+        }
 
     }
 }

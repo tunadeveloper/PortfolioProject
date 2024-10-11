@@ -11,13 +11,29 @@ namespace PortfolioProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Testimonial
     {
         public int TestimonialId { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string Title { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(250, ErrorMessage = "En fazla 250 karakter olmalýdýr.")]
         public string Comment { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(250, ErrorMessage = "En fazla 250 karakter olmalýdýr.")]
         public string ImageUrl { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string NameSurname { get; set; }
     }
 }

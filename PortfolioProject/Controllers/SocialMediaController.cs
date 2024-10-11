@@ -71,5 +71,11 @@ namespace PortfolioProject.Controllers
             context.SaveChanges();
             return RedirectToAction("SocialMediaList");
         }
+
+        public PartialViewResult SocialMediaIcon()
+        {
+            return PartialView();
+        }
+       
     }
 }

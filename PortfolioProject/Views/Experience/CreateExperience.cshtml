@@ -4,13 +4,13 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-info">Yeni Deneyim Girişi</h2>
+<h2 class="mb-4 alert alert-info">Yeni Deneyim Ekle</h2>
 <form method="post">
     <label>Şirket Adı</label>
     @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.CompanyName, "", new { @style = "color: red;" })
     <br />
-    <label>İş Tarihi</label>
+    <label>Çalışma Tarihi</label>
     @Html.TextBoxFor(x => x.WorkDate, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WorkDate, "", new { @style = "color: red;" })
     <br />
@@ -22,7 +22,7 @@
     @Html.TextAreaFor(x => x.Description, 6, 0, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color: red;" })
     <br />
-    <button class="btn btn-info">Deneyimi Oluştur</button>
+    <button class="btn btn-info">Deneyimi Ekle</button>
 </form>
 
 

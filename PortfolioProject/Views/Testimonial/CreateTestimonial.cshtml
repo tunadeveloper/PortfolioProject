@@ -4,7 +4,7 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-info">Yeni Referans Girişi</h2>
+<h2 class="mb-4 alert alert-info">Yeni Referans Ekle</h2>
 <form method="post">
     <label>İsim Soyisim</label>
     @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
@@ -22,5 +22,5 @@
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info", placeholder = "https://i.hizliresim.com/resim.jpg" })
     @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @style = "color: red;" })
     <br />
-    <button class="btn btn-info">Referansı Oluştur</button>
+    <button class="btn btn-info">Referansı Ekle</button>
 </form>

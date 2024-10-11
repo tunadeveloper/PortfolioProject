@@ -4,7 +4,7 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-success">Deneyim Girişi</h2>
+<h2 class="mb-4 alert alert-success">Hakkımda Güncelle</h2>
 <form method="post">
     @Html.HiddenFor(x => x.AboutId, new { @class = "form-control" })
 
@@ -20,6 +20,6 @@
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info" })
     @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @style = "color: red;" })
     <br />
-    <button class="btn btn-success">Güncelle</button>
+    <button class="btn btn-success">Bilgileri Güncelle</button>
 </form>
 

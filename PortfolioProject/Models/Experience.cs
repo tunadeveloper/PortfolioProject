@@ -11,13 +11,24 @@ namespace PortfolioProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Experience
     {
         public int ExperienceId { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string CompanyName { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string WorkDate { get; set; }
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(100, ErrorMessage = "En fazla 100 karakter olmalýdýr.")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(500, ErrorMessage = "En fazla 500 karakter olmalýdýr.")]
         public string Description { get; set; }
     }
 }

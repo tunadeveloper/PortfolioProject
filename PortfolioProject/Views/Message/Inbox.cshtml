@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Inbox";
     Layout = "~/Views/Admin/Index.cshtml";
+    int index = 0;
 }
 @{
     var categoryColors = new Dictionary<string, string>();
@@ -14,7 +15,7 @@
 <h2 class="mb-4 alert alert-warning">Gelen Mesajlar</h2>
 
 <table class="table table-bordered">
-    <tr>
+    <tr  style="background-color:cornflowerblue; color:white;">
         <th>#</th>
         <th>Gönderen</th>
         <th>Konu</th>
@@ -27,13 +28,15 @@
     </tr>
     @foreach (var item in Model)
     {
+        var rowClass = (index % 2 == 0) ? "table-light" : "table-info";
+        index++;
         if (!categoryColors.ContainsKey(item.Category.CatagoryName))
         {
             categoryColors[item.Category.CatagoryName] = colors[colorIndex];
             colorIndex = (colorIndex + 1) % colors.Length;
         }
 
-        <tr>
+        <tr class="@rowClass">
             <td>@item.MessageId</td>
             <td>@item.Name</td>
             <td>@item.Subject</td>

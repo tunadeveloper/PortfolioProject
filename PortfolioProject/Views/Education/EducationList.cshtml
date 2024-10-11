@@ -4,12 +4,13 @@
 @{
     ViewBag.Title = "EducationList";
     Layout = "~/Views/Admin/Index.cshtml";
+    int index = 0;
 }
 
 <h2 class="mb-4 alert alert-warning">Eğitimlerim Listesi</h2>
 
 <table class="table table-bordered">
-    <tr>
+    <tr style="background-color:cornflowerblue; color:white;">
         <th>Id</th>
         <th>Kurum Adı</th>
         <th>Eğitim Tarihi</th>
@@ -21,7 +22,9 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        var rowClass = (index % 2 == 0) ? "table-light" : "table-info";
+        index++;
+        <tr class="@rowClass">
 
             <td>@item.EducationId</td>
             <td>@item.Title</td>

@@ -11,18 +11,39 @@ namespace PortfolioProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Profile
     {
         public int ProfileId { get; set; }
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(100, ErrorMessage = "En fazla 100 karakter olmalýdýr.")]
         public string Title { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(300, ErrorMessage = "En fazla 300 karakter olmalýdýr.")]
         public string Description { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(150, ErrorMessage = "En fazla 150 karakter olmalýdýr.")]
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(15, ErrorMessage = "En fazla 15 karakter olmalýdýr.")]
         public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(100, ErrorMessage = "En fazla 100 karakter olmalýdýr.")]
         public string Github { get; set; }
+
         public string ImageUrl { get; set; }
+
         public string MapLocation { get; set; }
+
         public string Cv { get; set; }
     }
 }

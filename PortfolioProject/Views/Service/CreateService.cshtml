@@ -4,7 +4,7 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-info">Hizmet Ekle</h2>
+<h2 class="mb-4 alert alert-info">Yeni Hizmet Ekle</h2>
 <form method="post">
 
     <label>Başlık</label>
@@ -32,6 +32,6 @@
     @Html.ValidationMessageFor(x => x.Experience3, "", new { @style = "color: red;" })
     <br />
 
-    <button class="btn btn-success">Servisi Güncelle</button>
+    <button class="btn btn-info">Hizmeti Ekle</button>
 </form>
 

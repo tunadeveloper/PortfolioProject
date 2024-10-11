@@ -4,22 +4,28 @@
 @{
     ViewBag.Title = "CategoryList";
     Layout = "~/Views/Admin/Index.cshtml";
+    int index = 0; // Counter for alternating rows
 }
 
 <h2 class="mb-4 alert alert-warning">Kategori Listesi</h2>
 
 <table class="table table-bordered">
-    <tr>
+    <tr style="background-color:cornflowerblue; color:white;">
         <th>Id</th>
         <th>Kategori Adı</th>
         <th>Durumu</th>
         <th>Değiştir</th>
         <th>Güncelle</th>
     </tr>
-
+    
     @foreach (var item in Model)
     {
-        <tr>
+        // saddlebrown
+        // Alternate row colors
+        var rowClass = (index % 2 == 0) ? "table-light" : "table-info";
+        index++;
+
+        <tr class="@rowClass">
             <td>@item.CategoryId</td>
             <td>@item.CatagoryName</td>
             <td>
@@ -39,10 +45,11 @@
         </tr>
     }
 </table>
+
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("CategoryList", new { page }), new PagedListRenderOptions
 {
     LiElementClasses = new List<string>
     { "page-link"}
 })
 <br />
-<a href="/Category/CreateCategory/" class="btn btn-info">Yeni Kategori Girişi</a>
+<a href="/Category/CreateCategory/" class="btn btn-info">Yeni Kategori Ekle</a>

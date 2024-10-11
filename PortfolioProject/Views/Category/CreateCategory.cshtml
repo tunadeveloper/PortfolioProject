@@ -5,7 +5,7 @@
 }
 
 
-<h2 class="mb-4 alert alert-info">Yeni kategori Girişi</h2>
+<h2 class="mb-4 alert alert-info">Yeni kategori Ekle</h2>
 <form method="post">
     <label>Kategori Adı</label>
     @Html.TextBoxFor(x => x.CatagoryName, new { @class = "form-control" })
@@ -18,5 +18,5 @@
         new SelectListItem { Text = "Pasif", Value = "False" }
     }, "Value", "Text"), "Kategori Durumunu Seçiniz", new { @class = "form-control" })
     <br />
-    <button class="btn btn-info">Kategoriyi Oluştur</button>
+    <button class="btn btn-info">Kategoriyi Ekle</button>
 </form>

@@ -18,26 +18,26 @@
     @Html.TextAreaFor(x => x.Description, 5, 0, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color: red;" })
     <br />
-    <label>ADres</label>
+    <label>Adres</label>
     @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Address, "", new { @style = "color: red;" })
     <br />
-    <label>Telefon</label>
+    <label>Telefon Numarası</label>
     @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.PhoneNumber, "", new { @style = "color: red;" })
     <br />
-    <label>mail</label>
+    <label>E-Posta Adresi</label>
     @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color: red;" })
     <br />
-    <label>CV</label>
+    <label>CV İndirme Bağlantısı</label>
     @Html.TextBoxFor(x => x.Cv, new { @class = "form-control text-info" })
     <br />
-    <label>github</label>
+    <label>Github Profil Bağlantısı</label>
     @Html.TextBoxFor(x => x.Github, new { @class = "form-control text-info" })
     @Html.ValidationMessageFor(x => x.Github, "", new { @style = "color: red;" })
     <br />
-    <label>Görsel</label>
+    <label>Görsel Bağlantısı</label>
     @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control text-info" })
     <br />
     @if (Model != null && !string.IsNullOrEmpty(Model.ImageUrl))
@@ -48,7 +48,7 @@
 
     <br />
     <br />
-    <label>Harita</label>
+    <label>Harita Bağlantısı</label>
     @Html.TextBoxFor(x => x.MapLocation, new { @class = "form-control text-info" })
     <br />
 

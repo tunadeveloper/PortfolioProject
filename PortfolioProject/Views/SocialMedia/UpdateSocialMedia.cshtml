@@ -4,7 +4,7 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-success">Updatye</h2>
+<h2 class="mb-4 alert alert-success">Sosyal Medya Güncelle</h2>
 
 <form method="post">
     @Html.HiddenFor(x => x.SocialMediaId)
@@ -20,5 +20,5 @@
     @Html.TextBoxFor(x => x.SocialMediaUrl, new { @class = "form-control text-info", placeholder = "https://instagram.com/username" })
     @Html.ValidationMessageFor(x => x.SocialMediaUrl, "", new { @style = "color: red;" })
     <br />
-    <button class="btn btn-info">Sosyal Medya Hesabını Ekle</button>
+    <button class="btn btn-success">Sosyal Medyayı Güncelle</button>
 </form>

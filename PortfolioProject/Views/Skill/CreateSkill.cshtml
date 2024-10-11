@@ -4,20 +4,20 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-warning">Yeni Yetenek Girişi</h2>
+<h2 class="mb-4 alert alert-info">Yeni Yetenek Ekle</h2>
 <form method="post">
     <label>Yetenek Başlığı</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color: red;" })
     <br />
-    <label>Yetenek İkonu</label>
-    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control", placeholder = "fa -fa" })
+    <label>Yetenek Icon</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control text-warning", placeholder = "fab fa-android fa-3x" })
     @Html.ValidationMessageFor(x => x.Icon, "", new { @style = "color: red;" })
     <br />
     <label>Yetenek Değeri</label>
     @Html.TextBoxFor(x => x.Value, new { @class = "form-control", placeholder = "00" })
     @Html.ValidationMessageFor(x => x.Value, "", new { @style = "color: red;" })
     <br />
-    <button class="btn btn-info">Yeteneği Oluştur</button>
+    <button class="btn btn-info">Yeteneği Ekle</button>
 </form>
 

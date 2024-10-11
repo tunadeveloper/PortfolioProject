@@ -4,12 +4,13 @@
 @{
     ViewBag.Title = "TestimonialList";
     Layout = "~/Views/Admin/Index.cshtml";
+    int index = 0;
 }
 
 <h2 class="mb-4 alert alert-warning">Referanslarım Listesi</h2>
 
 <table class="table table-bordered">
-    <tr>
+    <tr style="background-color:cornflowerblue; color:white;">
         <th>Id</th>
         <th>İsim Soyisim</th>
         <th>Başlık</th>
@@ -21,7 +22,9 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        var rowClass = (index % 2 == 0) ? "table-light" : "table-info";
+        index++;
+        <tr class="@rowClass">
             <td>@item.TestimonialId</td>
             <td>@item.NameSurname</td>
             <td>@item.Title</td>
@@ -38,6 +41,6 @@
     { "page-link"}
 })
 <br />
-<a href="/Testimonial/CreateTestimonial/" class="btn btn-info">Yeni Referans Girişi</a>
+<a href="/Testimonial/CreateTestimonial/" class="btn btn-info">Yeni Referans Ekle</a>
 
 

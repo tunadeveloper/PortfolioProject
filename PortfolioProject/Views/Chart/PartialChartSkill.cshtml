@@ -1,114 +1,80 @@
 ﻿@model IEnumerable<PortfolioProject.Models.Skill>
 
 <h2 class="alert alert-warning">Yetenek İstatistikleri</h2>
-<br />
-<div style="max-width: 600px; margin: auto;">
-    <canvas id="myDoughnutChart"></canvas>
+<br /><br />
+<div style="max-width: 800px; margin: auto;">
+    <canvas id="myChart" width="400" height="200"></canvas>
 </div>
 
 <!-- Chart.js Kütüphanesini ekle -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    // Renk paleti tanımlama
-    var colors = [
-        'rgba(255, 99, 132, 0.8)',
-        'rgba(54, 162, 235, 0.8)',
-        'rgba(255, 206, 86, 0.8)',
-        'rgba(75, 192, 192, 0.8)',
-        'rgba(153, 102, 255, 0.8)',
-        'rgba(255, 159, 64, 0.8)',
-        'rgba(99, 255, 132, 0.8)'
-    ];
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(75, 192, 192, 1)');
+    gradient.addColorStop(1, 'rgba(153, 102, 255, 1)');
 
-    var ctx = document.getElementById('myDoughnutChart').getContext('2d');
-    var myDoughnutChart = new Chart(ctx, {
-        type: 'doughnut',
+    var myChart = new Chart(ctx, {
+        type: 'bar',
         data: {
-            labels: @Html.Raw(Json.Encode(Model.Select(x => x.Title).ToArray())),  // Yetenek isimleri
+            labels: @Html.Raw(Json.Encode(Model.Select(x => x.Title).ToArray())), // Başlıklar
             datasets: [{
                 label: 'Yetenek Değerleri',
-                data: @Html.Raw(Json.Encode(Model.Select(x => x.Value).ToArray())),  // Yetenek değerleri
-                backgroundColor: colors,  // Daire dilimlerinin renkleri
-                hoverBackgroundColor: colors.map(color => color.replace('0.8', '1')),  // Hover (üzerine gelince) efekt
-                borderColor: 'rgba(255, 255, 255, 1)',  // Dilimlerin kenar rengi
-                borderWidth: 4  // Kenar kalınlığı
+                data: @Html.Raw(Json.Encode(Model.Select(x => x.Value).ToArray())), // Değerler
+                backgroundColor: gradient,  // Renk geçişi
+                borderColor: 'rgba(54, 162, 235, 1)',  // Dış çizgi rengi
+                borderWidth: 2,  // Çubukların kenar kalınlığı
+                hoverBackgroundColor: 'rgba(255, 159, 64, 0.8)',  // Hover renginde değişiklik
+                hoverBorderColor: 'rgba(255, 159, 64, 1)',  // Hover dış çizgi rengi
             }]
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: '70%',  // Çörek grafiğinde ortada boşluk bırakma oranı
+            animation: {
+                duration: 2000, // Animasyon süresi
+                easing: 'easeInOutBounce' // Yumuşak animasyon tipi
+            },
             plugins: {
                 tooltip: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.7)',  // Tooltip arka plan rengi
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
                     titleFont: {
                         size: 16,
                         weight: 'bold',
-                        family: 'Arial, sans-serif'
                     },
                     bodyFont: {
-                        size: 14
+                        size: 14,
                     },
-                    padding: 10
-                },
-                legend: {
-                    display: true,  // Legend (açıklamalar) gösterilsin
-                    position: 'bottom',  // Grafik altına yerleşsin
-                    labels: {
-                        font: {
-                            size: 14,
-                            family: 'Arial, sans-serif'
-                        },
-                        color: '#333'  // Açıklama metni rengi
-                    }
+                    bodySpacing: 6,
+                    padding: 10,
+                    cornerRadius: 6,
                 }
             },
-            animation: {
-                animateScale: true,  // Grafiğin büyümesi
-                animateRotate: true,  // Grafik dönerken animasyon efekti
-                duration: 1000  // Animasyon süresi
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#000', // Y ekseni renk
+                        font: {
+                            size: 14
+                        }
+                    },
+                    grid: {
+                        display: true,  // Y ekseni grid
+                        color: 'rgba(75, 192, 192, 0.2)'  // Grid rengi
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#000',  // X ekseni renk
+                        font: {
+                            size: 14
+                        }
+                    },
+                    grid: {
+                        display: false  // X ekseni grid'i gizle
+                    }
+                }
             }
         }
     });
 </script>
-
-<!-- Stil (CSS) -->
-<style>
-    body {
-        background-color: #f8f9fa; /* Arka plan rengi */
-    }
-
-    h2 {
-        color: #555;
-        font-family: 'Arial', sans-serif;
-        margin-bottom: 20px;
-    }
-
-    canvas {
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-        // Grafik için gölge efekti border-radius: 8px;
-        // Grafik kenarlarını yuvarlatma
-    }
-
-    .chart-container {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        // Grafik yüksekliği margin: auto;
-    }
-
-    .tooltip {
-        font-size: 14px;
-        padding: 10px;
-        border-radius: 5px;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-    }
-
-    .legend-label {
-        font-size: 14px;
-        color: #333;
-        margin-bottom: 5px;
-    }
-</style>

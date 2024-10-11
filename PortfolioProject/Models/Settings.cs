@@ -11,24 +11,83 @@ namespace PortfolioProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Settings
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(30, ErrorMessage = "En fazla 30 karakter olmalýdýr.")]
         public string ProfileSideBarName { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string ProfileSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(60, ErrorMessage = "En fazla 60 karakter olmalýdýr.")]
         public string AboutSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string EducationSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string ExperienceSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string SkillSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string ServicesSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string WorkSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string TestimonialSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(150, ErrorMessage = "En fazla 150 karakter olmalýdýr.")]
         public string ContactSideBarTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string FooterNameSurname { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(150, ErrorMessage = "En fazla 150 karakter olmalýdýr.")]
         public string PartialHeadTitle { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(150, ErrorMessage = "En fazla 150 karakter olmalýdýr.")]
         public string PartialHeadKeywords { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(500, ErrorMessage = "En fazla 500 karakter olmalýdýr.")]
         public string PartialHeadDescription { get; set; }
+
+
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(50, ErrorMessage = "En fazla 50 karakter olmalýdýr.")]
         public string FooterTitle { get; set; }
     }
 }

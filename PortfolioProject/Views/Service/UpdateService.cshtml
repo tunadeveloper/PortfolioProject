@@ -4,7 +4,7 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-success">Deneyim Güncelle</h2>
+<h2 class="mb-4 alert alert-success">Hizmet Güncelle</h2>
 <form method="post">
     @Html.HiddenFor(x => x.ServiceId, new { @class = "form-control" })
 
@@ -33,6 +33,6 @@
     @Html.ValidationMessageFor(x => x.Experience3, "", new { @style = "color: red;" })
     <br />
 
-    <button class="btn btn-success">Servisi Güncelle</button>
+    <button class="btn btn-success">Hizmeti Güncelle</button>
 </form>
 

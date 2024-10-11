@@ -4,12 +4,13 @@
 @{
     ViewBag.Title = "ServiceList";
     Layout = "~/Views/Admin/Index.cshtml";
+    int index = 0;
 }
 
 <h2 class="mb-4 alert alert-warning">Hizmetlerim Listesi</h2>
 
 <table class="table table-bordered">
-    <tr>
+    <tr style="background-color:cornflowerblue; color:white;">
         <th>Id</th>
         <th>Başlık</th>
         <th>Açıklama</th>
@@ -18,12 +19,14 @@
         <th>2. Yetenek</th>
         <th>3. Yetenek</th>
         <th>Sil</th>
-        <th>Güncelleme</th>
+        <th>Güncelle</th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
+        var rowClass = (index % 2 == 0) ? "table-light" : "table-info";
+        index++;
+        <tr class="@rowClass">
             <td>@item.ServiceId</td>
             <td>@item.Title</td>
             <td>@item.Description</td>
@@ -42,5 +45,5 @@
     { "page-link"}
 })
 <br />
-<a href="/Service/CreateService/" class="btn btn-info">Yeni Hizmet Girişi</a>
+<a href="/Service/CreateService/" class="btn btn-info">Yeni Hizmet Ekle</a>
 

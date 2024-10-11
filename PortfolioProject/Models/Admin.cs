@@ -11,11 +11,16 @@ namespace PortfolioProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Admin
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(30, ErrorMessage = "En fazla 30 karakter olmalýdýr.")]
         public string Password { get; set; }
+        [Required(ErrorMessage = "Bu alan boþ geçilemez.")]
+        [MaxLength(30, ErrorMessage = "En fazla 30 karakter olmalýdýr.")]
         public string Username { get; set; }
     }
 }

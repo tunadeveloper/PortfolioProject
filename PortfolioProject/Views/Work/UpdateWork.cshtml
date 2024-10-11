@@ -4,7 +4,7 @@
     Layout = "~/Views/Admin/Index.cshtml";
 }
 
-<h2 class="mb-4 alert alert-success">Update</h2>
+<h2 class="mb-4 alert alert-success">Proje Güncelle</h2>
 
 <form method="post">
     @Html.HiddenFor(x => x.WorkId)
@@ -25,5 +25,5 @@
     @Html.TextBoxFor(x => x.GithubUrl, new { @class = "form-control text-info" })
     @Html.ValidationMessageFor(x => x.GithubUrl, "", new { @style = "color: red;" })
     <br />
-    <button class="btn btn-info">Projeyi Güncelle</button>
+    <button class="btn btn-success">Projeyi Güncelle</button>
 </form>
