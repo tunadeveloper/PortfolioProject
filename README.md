@@ -95,4 +95,3 @@ Bu proje, klasik bir CV'yi dinamik bir web tabanlı portfolyo sitesine dönüşt
 
 ---
 
-🎉 **Ve daha fazlası...**
